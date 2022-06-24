@@ -1,0 +1,19 @@
+includes:
+  - base.yaml
+targets:
+  - target: /bin
+    copy:
+      - files:
+        - ../test/ra_test
+  - target: /opt/occlum/glibc/lib
+    copy:
+      - files:
+        - /opt/intel/sgxsdk/lib64/libsgx_uquote_verify_hyper.so
+        - /usr/local/lib64/libcjson.so.1
+        - ../src/libhyper_ra.so
+  - target: /
+    copy:
+      - files:
+        - ../cfca.json
+        - ../nocert.json
+        - ../nocert_ftpm.json
