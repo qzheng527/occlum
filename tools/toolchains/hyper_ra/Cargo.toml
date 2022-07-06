@@ -1,0 +1,18 @@
+[package]
+name = "hyper_ra"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+authors = ["Zheng, Qi huaiqing.zq@antgroup.com"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sgx_types = { path = "../../../deps/rust-sgx-sdk/sgx_types" }
+libc = "0.2"
+cfg-if = "1.0.0"
+serde = "1.0"
+serde_json = "1.0"
+
+[lib]
+crate-type = ["cdylib", "rlib", "staticlib"]
