@@ -1,6 +1,6 @@
 includes:
   - base.yaml
-  - java-11-alibaba-dragonwell.yaml
+  - java-8-openjdk.yaml
 targets:
   # copy java class file
   - target: /

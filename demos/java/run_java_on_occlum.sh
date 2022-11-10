@@ -29,8 +29,8 @@ init_instance() {
                 .resource_limits.max_num_of_threads = 64 |
                 .process.default_heap_size = "256MB" |
                 .process.default_mmap_size = "1400MB" |
-                .entry_points = [ "/usr/lib/jvm/java-11-alibaba-dragonwell/jre/bin" ] |
-                .env.default = [ "LD_LIBRARY_PATH=/usr/lib/jvm/java-11-alibaba-dragonwell/jre/lib/server:/usr/lib/jvm/java-11-alibaba-dragonwell/jre/lib:/usr/lib/jvm/java-11-alibaba-dragonwell/jre/../lib" ]' Occlum.json)" && \
+                .entry_points = [ "/usr/lib/jvm/java-1.8-openjdk/jre/bin" ] |
+                .env.default = [ "LD_LIBRARY_PATH=/usr/lib/jvm/java-1.8-openjdk/jre/lib:/usr/lib/jvm/java-1.8-openjdk/lib" ]' Occlum.json)" && \
     echo "${new_json}" > Occlum.json
 }
 
@@ -83,8 +83,8 @@ run_processBuilder() {
     init_instance
     build_processBuilder
     echo -e "${BLUE}occlum run JVM processBuilder${NC}"
-    occlum run /usr/lib/jvm/java-11-alibaba-dragonwell/jre/bin/java -Xmx512m -XX:-UseCompressedOops -XX:MaxMetaspaceSize=64m -Dos.name=Linux \
-        -Djdk.lang.Process.launchMechanism=posix_spawn processBuilder
+    taskset -c 0,1 occlum run /usr/lib/jvm/java-1.8-openjdk/jre/bin/java -Xmx512m -XX:-UseCompressedOops -XX:MaxMetaspaceSize=64m -Dos.name=Linux \
+        -Djdk.lang.Process.launchMechanism=vfork processBuilder
 }
 
 arg=$1
