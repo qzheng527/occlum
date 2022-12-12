@@ -18,6 +18,7 @@ targets:
     copy:
       - files: 
           - ../mnist.py
+          - ../pert.py
   - target: /opt/occlum/glibc/lib
     copy:
       - files:

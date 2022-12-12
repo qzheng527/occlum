@@ -7,6 +7,7 @@ NC='\033[0m'
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd )"
 python_dir="$script_dir/occlum_instance/image/opt/python-occlum"
 
+INSTANCE=${1:-"mnist"}
 
 function generate_ca_files()
 {
@@ -36,7 +37,7 @@ function build_instance()
     new_json="$(jq '.resource_limits.user_space_size = "4000MB" |
                     .resource_limits.kernel_space_heap_size = "256MB" |
                     .resource_limits.max_num_of_threads = 64 |
-                    .env.untrusted += [ "MASTER_ADDR", "MASTER_PORT", "WORLD_SIZE", "RANK", "TORCH_CPP_LOG_LEVEL" ] |
+                    .env.untrusted += [ "MASTER_ADDR", "MASTER_PORT", "WORLD_SIZE", "RANK", "TORCH_CPP_LOG_LEVEL", "HOME" ] |
                     .env.default += ["GLOO_DEVICE_TRANSPORT=TCP_TLS"] |
                     .env.default += ["GLOO_DEVICE_TRANSPORT_TCP_TLS_PKEY=/ppml/certs/test.key"] |
                     .env.default += ["GLOO_DEVICE_TRANSPORT_TCP_TLS_CERT=/ppml/certs/test.crt"] |
@@ -44,12 +45,21 @@ function build_instance()
                     .env.default += ["PYTHONHOME=/opt/python-occlum"] |
                     .env.default += [ "MASTER_ADDR=127.0.0.1", "MASTER_PORT=29500" ] ' Occlum.json)" && \
     echo "${new_json}" > Occlum.json
+
+    # pert requires more memory
+    if [[ $1 == "pert" ]]; then
+        new_json="$(jq '.resource_limits.user_space_size = "60GB" |
+                    .resource_limits.kernel_space_heap_size = "512MB" |
+                    .resource_limits.max_num_of_threads = 128 ' Occlum.json)" && \
+        echo "${new_json}" > Occlum.json
+    fi
+
     occlum build
     popd
 }
 
 generate_ca_files
-build_instance
+build_instance ${INSTANCE}
 
 # Test instance for 2 nodes distributed pytorch training
 cp -r occlum_instance occlum_instance_2

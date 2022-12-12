@@ -105,3 +105,22 @@ After downloading data
 2022-12-05T09:40:09Z INFO     Train Epoch: 1 [90/469 (19%)]     loss=2.2536
 ...
 ```
+
+### PERT case
+
+Besides `fasion-MNIST` case, there is also a `PERT` (Pre-Training BERT with Permuted Language Model) case provided as example. To run this case, more memory is required.
+Thus minor changes on steps above.
+
+1. For step 3, just pass `pert` as parameter.
+```bash
+cd /root/demos/pytorch/distributed
+bash ./build_pytorch_occlum_instance.sh pert
+```
+
+2. Do not try distributed mode unless you have enough EPC resource. 60GB EPC for one node.
+
+3. Run command for one node as below.
+```bash
+cd /root/demos/pytorch/distributed/occlum_instance
+WORLD_SIZE=1 RANK=0 HOME=/root taskset -c 0-12 occlum run /bin/python3 pert.py --epochs 1 --log-interval 50 --test-batch-size 16 --batch-size 16  --dataset 1
+```
