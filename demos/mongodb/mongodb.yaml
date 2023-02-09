@@ -1,0 +1,32 @@
+includes:
+  - base.yaml
+targets:
+  # copy bash and busybox
+  - target: /bin
+    copy:
+      - files:
+        - /opt/occlum/toolchains/bash/glibc/bash
+        - /opt/occlum/toolchains/busybox/glibc/busybox
+  # below are python code and data
+  - target: /bin
+    copy:
+      - files: 
+        - ../install/mongo/bin/mongod
+  - target: /opt/occlum/glibc/lib
+    copy:
+      - files:
+          - /lib/x86_64-linux-gnu/libcrypt.so.1
+  # etc files
+  - target: /etc
+    copy:
+      - dirs:
+          - /etc/ssl
+      - files:
+          - /etc/nsswitch.conf
+          - /etc/passwd
+          - /etc/group
+          - ../mongod.conf
+  # - target: /usr/share
+  #   copy:
+  #     - dirs:
+  #         - /usr/share/zoneinfo
