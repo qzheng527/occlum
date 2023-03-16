@@ -63,8 +63,6 @@ submodule: githooks init-submodule
 endif
 
 init-submodule:
-	git submodule init
-	git submodule update $(OCCLUM_GIT_OPTIONS)
 	@# Try to apply the patches. If failed, check if the patches are already applied
 	cd deps/serde-json-sgx && git apply ../serde-json-sgx.patch >/dev/null 2>&1 || git apply ../serde-json-sgx.patch -R --check
 	cd deps/ringbuf && git apply ../ringbuf.patch >/dev/null 2>&1 || git apply ../ringbuf.patch -R --check
