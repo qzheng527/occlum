@@ -4,10 +4,8 @@
 set -xe
 
 # Test pipe
-busybox echo -e "Hello-world-from-bash\n test" | busybox awk '$1=$1' FS="-" OFS=" " > /root/output.txt
-busybox cat /root/output.txt
-busybox rm /root/output.txt
-busybox ls -l /root/output.txt || true
+busybox echo -e "Hello-world-from-bash\n test" | busybox awk '$1=$1' FS="-" OFS=" " > /mnt/output.txt
+busybox cat /mnt/output.txt
 
 # Test command substitution
 DATE=$(busybox date)

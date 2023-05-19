@@ -20,6 +20,13 @@ new_json="$(jq '.resource_limits.user_space_size = "600MB" |
                 .resource_limits.kernel_space_stack_size ="2MB"	' Occlum.json)" && \
     echo "${new_json}" > Occlum.json
 
+# Create external mount point
+rm -rf /occlum_mnt && mkdir -p /occlum_mnt
+mkdir image/mnt
+
+new_json="$(cat Occlum.json | jq '.mount+=[{"target": "/mnt","type": "sefs", "source": "/occlum_mnt"}]')" && \
+echo "${new_json}" > Occlum.json
+
 occlum build
 occlum run /bin/occlum_bash_test.sh
 
