@@ -19,6 +19,12 @@ targets:
       - dirs:
         # PG files
         - /usr/local/pgsql
+  - target: /etc/pgconf
+    copy:
+      - files:
+        # PG config files
+        - ../postgresql.conf
+        - ../pg_hba.conf
   - target: /opt/occlum/glibc/lib
     copy:
       - files:

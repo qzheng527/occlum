@@ -9,7 +9,7 @@ function dl_build_install_pg()
 
     pushd pg15
     git apply ../0001-Make-pg15-running-on-Occlum.patch
-    ./configure --without-readline
+    ./configure --without-readline --prefix=/usr/local/pgsql --with-python
     make -j$(nproc)
     make install
     popd
