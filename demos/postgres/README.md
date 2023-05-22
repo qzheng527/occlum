@@ -12,7 +12,7 @@ Assumping users do all the build on Occlum Ubuntu 20.04 based development docker
 
 ```
 apt update
-apt install -y flex libgeos-dev libgdal-dev liblz4-dev
+apt install -y flex libgeos-dev libgdal-dev liblz4-dev python3-dev
 ```
 
 ## PostgreSQL modifications for Occlum
@@ -41,29 +41,47 @@ Just run the script [`build_pg.sh`](./build_pg.sh). If everything goes well, it 
 ./build_pg.sh
 ```
 
-## Initialize the Data Base
-
-Users can do the database initialization in host side before Occlum build.
-```
-/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
-```
-
 ## Build the Occlum Instance
 
 Just run the script [`build_occlum_instance.sh`](./build_occlum_instance.sh).
 
 Please note, two PG configuration files are provided as example, [`postgresql.conf`](./postgresql.conf) and [`pg_hba.conf`](./pg_hba.conf). Users can do customization themselves. Just remember re-run the `build_occlum_instance.sh` after the customization.
 
-## Start the PG Server
+## External PG Data Mount
 
-Now users can start running the PG server in Occlum.
+To make PG data could be preserved and reused even the Occlum PG instance got upgraded or rebuilt, the PG data needs to be saved in the external mount data point. Here are the steps how this could be done.
+
+1. Create empty external mount point.
+2. Add mount info into the Occlum.json
+3. Do **initdb** once after Occlum PG server started.
+4. Start the Occlum PG server by specifying PG data path and configuration files path.
+
+Steps **1** and **2** are done in the script [build_occlum_instance.sh](./build_occlum_instance.sh). In short word, the **../pg_data** in the host side is mounted into the Occlum instance as path **/pg_data** which will be used as the PG server data path.
+
+Steps **3** and **4** are described in next chapter.
+
+## How to Start
+
+Now users can start the Occlum instance.
 ```
 cd occlum_instance
 occlum start
-occlum exec /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /host/logfile start
 ```
 
-It starts the PG server, and maps the PG log to host side. Users can find the logfile in the `occlum_instance` directory.
+### Initialize the Data Base
+
+This is the step **3**. It should be done just once.
+```
+occlum exec /usr/local/pgsql/bin/initdb -D /pg_data
+```
+
+### Start the PG Server
+
+```
+occlum exec /usr/local/pgsql/bin/pg_ctl -D /pg_data -l /host/logfile -o '--config-file=/etc/pgconf/postgresql.conf' -o '--hba-file=/etc/pgconf/pg_hba.conf' start
+```
+
+It starts the PG server, specify the data path **/pg_data** and also the configuration files, maps the PG log to host side. Users can find the logfile in the `occlum_instance` directory.
 
 Then, users can create a `test` DB for following tests by using PG binaries installed in the host per `localhost`.
 ```
@@ -88,3 +106,12 @@ In our case, extensions PostGIS and Citus are already in the Occlum image file s
 ![psql shell](./psql_shell.png)
 
 After extensions installed, users can try spatial query or distributed scaling just as the general PG ways.
+
+## Stop the PG Server
+
+```
+occlum exec /usr/local/pgsql/bin/pg_ctl -D /pg_data -l /host/logfile -o '--config-file=/etc/pgconf/postgresql.conf' -o '--hba-file=/etc/pgconf/pg_hba.conf' stop
+occlum stop
+```
+
+There maybe error output in first command.
