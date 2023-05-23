@@ -21,7 +21,12 @@ runs:
       shell: bash
 
     - name: Get Occlum version
-      run: echo "OCCLUM_VERSION=$(grep 'Version =' src/pal/include/occlum_version.h | awk '{print $4}')" >> $GITHUB_ENV;
+      run: |
+        if [[ ${{ contains(github.event.pull_request.labels.*.name, 'Pre-release-test') }} ]]; then
+          echo "OCCLUM_VERSION=$(grep 'Version =' src/pal/include/occlum_version.h | awk '{print $4}')-test" >> $GITHUB_ENV;
+        else
+          echo "OCCLUM_VERSION=$(grep 'Version =' src/pal/include/occlum_version.h | awk '{print $4}')" >> $GITHUB_ENV;
+        fi
       shell: bash
 
     - name: Set container name
@@ -31,9 +36,9 @@ runs:
     - name: Create container
       run: |
         if [[ "${{ matrix.self_runner[1] }}" == "SGX1-HW" ]]; then
-          docker run -itd --name=${{ env.CONTAINER_NAME }} --privileged --rm --env CARGO_HTTP_MULTIPLEXING=false --device /dev/isgx -v $GITHUB_WORKSPACE:/root/occlum occlum/occlum:${{ env.OCCLUM_VERSION }}-${{ inputs.os }};
+          docker run -itd --name=${{ env.CONTAINER_NAME }} --privileged --rm --env CARGO_HTTP_MULTIPLEXING=false --device /dev/isgx -v $GITHUB_WORKSPACE:/root/occlum sevenzheng/occlum:${{ env.OCCLUM_VERSION }}-${{ inputs.os }};
         elif [[ "${{ matrix.self_runner[1] }}" == "SGX2-HW" ]]; then
-          docker run -itd --name=${{ env.CONTAINER_NAME }} --privileged --rm --env CARGO_HTTP_MULTIPLEXING=false -v /dev/sgx:/dev/sgx -v $GITHUB_WORKSPACE:/root/occlum occlum/occlum:${{ env.OCCLUM_VERSION }}-${{ inputs.os }};
+          docker run -itd --name=${{ env.CONTAINER_NAME }} --privileged --rm --env CARGO_HTTP_MULTIPLEXING=false -v /dev/sgx:/dev/sgx -v $GITHUB_WORKSPACE:/root/occlum sevenzheng/occlum:${{ env.OCCLUM_VERSION }}-${{ inputs.os }};
         else
           echo "Unsupported Hardware"
         fi;
