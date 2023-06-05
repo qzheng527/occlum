@@ -1,0 +1,25 @@
+From 97e5ed76c3bc80268de43ed090f2add3d30b522f Mon Sep 17 00:00:00 2001
+From: "Zheng, Qi" <huaiqing.zq@antgroup.com>
+Date: Mon, 5 Jun 2023 15:19:04 +0800
+Subject: [PATCH] Occlum do not support setitimer with warning message
+
+---
+ src/backend/utils/misc/timeout.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/backend/utils/misc/timeout.c b/src/backend/utils/misc/timeout.c
+index 8ab755d363..c7ebbf60cb 100644
+--- a/src/backend/utils/misc/timeout.c
++++ b/src/backend/utils/misc/timeout.c
+@@ -344,7 +344,7 @@ schedule_alarm(TimestampTz now)
+ 			 * to use timeout facilities.
+ 			 */
+ 			signal_pending = false;
+-			elog(FATAL, "could not enable SIGALRM timer: %m");
++			elog(WARNING, "could not enable SIGALRM timer: %m");
+ 		}
+ 	}
+ }
+-- 
+2.25.1
+
