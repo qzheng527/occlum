@@ -10,7 +10,7 @@ function dl_build_install_pg()
     pushd pg15
     git apply ../0001-Make-pg15-running-on-Occlum.patch
     git apply ../0002-Occlum-do-not-support-setitimer-with-warning-message.patch
-    ./configure --without-readline --prefix=/usr/local/pgsql --with-python
+    ./configure --without-readline --prefix=/usr/local/pgsql --with-python --with-openssl
     make -j$(nproc)
     make install
     popd

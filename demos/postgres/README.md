@@ -41,6 +41,15 @@ Just run the script [`build_pg.sh`](./build_pg.sh). If everything goes well, it 
 ./build_pg.sh
 ```
 
+## Create and Download Python Packages
+
+PG supports define python functions. To use python function, the required python and packages should get prepared first. Occlum recommends using **Conda** for this purpose. Details please check script [`install_python_with_conda.sh`](./install_python_with_conda.sh). Users could customize the packages in the script.
+
+In our case, just run the script for the preparation.
+```
+./install_python_with_conda.sh
+```
+
 ## Build the Occlum Instance
 
 Just run the script [`build_occlum_instance.sh`](./build_occlum_instance.sh).

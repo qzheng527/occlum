@@ -7,9 +7,16 @@ targets:
     createlinks:
       - src: /bin/bash
         linkname: sh
+      - src: /opt/python-occlum/bin/python3
+        linkname: python3
     copy:
       - files:
         - /opt/occlum/toolchains/bash/glibc/bash
+  # python packages
+  - target: /opt
+    copy:
+      - dirs:
+          - ../python-occlum
   - target: /usr/local/pgsql/bin
     copy:
       - files:
