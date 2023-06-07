@@ -323,75 +323,6 @@ jobs:
     - name: Run tensorflow test
       run: docker exec ${{ github.job }} bash -c "cd /root/occlum/demos/tensorflow/tensorflow_training; SGX_MODE=SIM ./run_tensorflow_on_occlum.sh 2>&1 | tee /root/occlum/log"
 
-
-# Below tests needs test image to run faster
-  Grpc_musl_test:
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-
-    - name: Create container
-      run: docker run -itd --name=${{ github.job }} -v $GITHUB_WORKSPACE:/root/occlum occlumbackup/occlum:latest-ubuntu20.04-grpc
-
-    - uses: ./.github/workflows/composite_action/prebuild
-      with:
-        container-name: ${{ github.job }}
-
-    - name: Build dependencies
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum; make submodule"
-
-    - name: Make install
-      run: docker exec ${{ github.job }} bash -c "source /opt/intel/sgxsdk/environment; cd /root/occlum; OCCLUM_RELEASE_BUILD=y make install"
-
-    - name: Prepare grpc sample project
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_musl && ./prepare_client_server.sh"
-
-    - name: Run grpc server
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_musl && SGX_MODE=SIM ./run_server_on_occlum.sh" &
-
-    - name: Run grpc client
-      run: |
-        sleep ${{ env.nap_time }};
-        docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_musl && SGX_MODE=SIM ./run_client_on_occlum.sh"
-
-
-  Grpc_glibc_test:
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-
-    - name: Create container
-      run: docker run -itd --name=${{ github.job }} -v $GITHUB_WORKSPACE:/root/occlum occlumbackup/occlum:latest-ubuntu20.04-grpc
-
-    - uses: ./.github/workflows/composite_action/prebuild
-      with:
-        container-name: ${{ github.job }}
-
-    - name: Build dependencies
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum; make submodule"
-
-    - name: Make install
-      run: docker exec ${{ github.job }} bash -c "source /opt/intel/sgxsdk/environment; cd /root/occlum; OCCLUM_RELEASE_BUILD=y make install"
-
-    - name: Prepare grpc sample project
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_glibc && ./prepare_client_server_glibc.sh"
-
-    - name: Run grpc server
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_glibc && SGX_MODE=SIM ./run_server_on_occlum_glibc.sh" &
-
-    - name: Run grpc client
-      run: |
-        sleep ${{ env.nap_time }};
-        docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_glibc && SGX_MODE=SIM ./run_client_on_occlum_glibc.sh"
-
-    - name: Run grpc stress client
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/grpc/grpc_glibc && ./run_stress_test.sh"
-
-
   Grpc_tls_test:
     runs-on: ubuntu-20.04
     steps:
@@ -430,48 +361,17 @@ jobs:
       with:
         submodules: true
 
-    - name: Create container
-      run: docker run -itd --name=${{ github.job }} -v $GITHUB_WORKSPACE:/root/occlum occlumbackup/occlum:latest-ubuntu20.04-openvino
-
-    - uses: ./.github/workflows/composite_action/prebuild
+    - uses: ./.github/workflows/composite_action/sim
       with:
         container-name: ${{ github.job }}
+        build-envs: 'OCCLUM_RELEASE_BUILD=1'
 
     - name: Build dependencies
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum; make submodule"
-
-    - name: Make install
-      run: docker exec ${{ github.job }} bash -c "source /opt/intel/sgxsdk/environment; cd /root/occlum; OCCLUM_RELEASE_BUILD=y make install"
+      run: docker exec ${{ github.job }} bash -c "cd /root/occlum/demos/openvino;
+          ./download_and_build_openvino.sh  && ./download_openvino_model.sh"
 
     - name: Run openVINO benchmark
-      run: docker exec ${{ github.job }} bash -c "cd /root/demos/openvino && cp -rf /root/occlum/demos/openvino/* . && SGX_MODE=SIM ./run_benchmark_on_occlum.sh"
-
-
-  # Python test also needs its own image because in Alpine environment, modules are built locally and consumes a lot of time.
-  Python_musl_support_test:
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-    - name: Create container
-      run: docker run -itd --name=${{ github.job }} -v $GITHUB_WORKSPACE:/root/occlum occlumbackup/occlum:latest-ubuntu20.04-python
-
-    - uses: ./.github/workflows/composite_action/prebuild
-      with:
-        container-name: ${{ github.job }}
-
-    - name: Build dependencies
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum; make submodule"
-
-    - name: Make install
-      run: docker exec ${{ github.job }} bash -c "source /opt/intel/sgxsdk/environment; cd /root/occlum; OCCLUM_RELEASE_BUILD=1 make install"
-
-    - name: Run python support test
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum/demos/python/python_musl; SGX_MODE=SIM ./run_python_on_occlum.sh"
-
-    - name: Check result
-      run: docker exec ${{ github.job }} bash -c "cd /root/occlum/demos/python/python_musl/occlum_instance; cat smvlight.dat"
+      run: docker exec ${{ github.job }} bash -c "cd /root/occlum/demos/openvino && SGX_MODE=SIM ./run_benchmark_on_occlum.sh"
 
   # Python glibc support test
   Python_glibc_support_test:
@@ -714,27 +614,25 @@ jobs:
       with:
         submodules: true
 
-    - name: Create container
-      run: |
-        docker pull occlumbackup/occlum:latest-ubuntu20.04-gvisor_test
-        gvisor_test=$(docker run -itd -v $GITHUB_WORKSPACE:/root/occlum occlumbackup/occlum:latest-ubuntu20.04-gvisor_test);
-        echo "gvisor_test=$gvisor_test" >> $GITHUB_ENV
-
-    - uses: ./.github/workflows/composite_action/prebuild
+    - uses: ./.github/workflows/composite_action/sim
       with:
-        container-name: $gvisor_test
+        container-name: ${{ github.job }}
+        build-envs: 'OCCLUM_RELEASE_BUILD=1'
 
-    - name: Build dependencies
-      run: docker exec $gvisor_test bash -c "cd /root/occlum; make submodule"
+    - name: Download gvisor for build
+      run: docker exec ${{ github.job }} bash -c "git clone -b occlum-release-20200921.0 https://github.com/occlum/gvisor.git"
 
-    - name: Make install in debug mode
-      run: docker exec $gvisor_test bash -c "source /opt/intel/sgxsdk/environment; cd /root/occlum; make install"
+    - name: Install gvisor syscall test binaries
+      run: docker exec ${{ github.job }} bash -c "cd gvisor/occlum; ./prepare_bazel.sh && ./build_and_install_syscall_tests.sh"
+
+    - name: Clean up
+      run: docker exec ${{ github.job }} bash -c "mv gvisor/occlum gvisor_occlum && rm -rf gvisor"
 
     - name: Clone gvisor code
-      run: docker exec $gvisor_test bash -c "git clone https://github.com/occlum/gvisor.git"
+      run: docker exec ${{ github.job }}  bash -c "git clone https://github.com/occlum/gvisor.git"
 
     - name: Run gvisor syscall test
-      run: docker exec $gvisor_test bash -c "cd /root/gvisor/occlum && SGX_MODE=SIM ./run_occlum_passed_tests.sh"
+      run: docker exec ${{ github.job }}  bash -c "cd /root/gvisor/occlum && SGX_MODE=SIM ./run_occlum_passed_tests.sh"
 
   Flask_tls_test:
     runs-on: ubuntu-20.04
