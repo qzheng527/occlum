@@ -1,5 +1,17 @@
+From 4d9aa7db15718aaf36550c4af7267bc6a20225d3 Mon Sep 17 00:00:00 2001
+From: Qi Zheng <huaiqing.zq@antgroup.com>
+Date: Tue, 20 Jun 2023 09:47:43 +0800
+Subject: [PATCH] Adapt to hyper mode
+
+---
+ sefs-cli/Makefile                   | 38 +++++++++++++++++++++--------
+ sefs-cli/app/build.rs               |  8 ++++++
+ sefs-cli/enclave/Enclave.config.xml |  1 +
+ sefs-cli/enclave/Enclave.lds        |  3 +++
+ 4 files changed, 40 insertions(+), 10 deletions(-)
+
 diff --git a/sefs-cli/Makefile b/sefs-cli/Makefile
-index f0eeb8c..8c6fae0 100644
+index f0eeb8c..28b61d0 100644
 --- a/sefs-cli/Makefile
 +++ b/sefs-cli/Makefile
 @@ -14,13 +14,19 @@ endif
@@ -8,7 +20,7 @@ index f0eeb8c..8c6fae0 100644
  	SGX_LIBRARY_PATH := $(SGX_SDK)/lib
 -	SGX_ENCLAVE_SIGNER := $(SGX_SDK)/bin/x86/sgx_sign
 -	SGX_EDGER8R := $(SGX_SDK)/bin/x86/sgx_edger8r
-+	SGX_BIN_PATH := $(SGX_SDK)/bin/x86
++	SGX_BIN_PATH := $(SGX_SDK)/bin/x64
  else
  	SGX_COMMON_CFLAGS := -m64
  	SGX_LIBRARY_PATH := $(SGX_SDK)/lib64
@@ -19,10 +31,10 @@ index f0eeb8c..8c6fae0 100644
 +
 +SGX_EDGER8R := $(SGX_BIN_PATH)/sgx_edger8r
 +ifneq ($(SGX_MODE), HYPER)
-+	SGX_ENCLAVE_SIGNER := $(SGX_BIN_PATH)/sgx_sign
++       SGX_ENCLAVE_SIGNER := $(SGX_BIN_PATH)/sgx_sign
 +else
-+	SGX_ENCLAVE_SIGNER := $(SGX_BIN_PATH)/sgx_sign_hyper
-+	SGX_EDGER8R_MODE := --sgx-mode $(SGX_MODE)
++       SGX_ENCLAVE_SIGNER := $(SGX_BIN_PATH)/sgx_sign_hyper
++       SGX_EDGER8R_MODE := --sgx-mode $(SGX_MODE)
  endif
  
  ifeq ($(SGX_DEBUG), 1)
@@ -31,15 +43,17 @@ index f0eeb8c..8c6fae0 100644
  ######## Enclave Settings ########
  
 -ifneq ($(SGX_MODE), HW)
+-	Trts_Library_Name := sgx_trts_sim
+-	Service_Library_Name := sgx_tservice_sim
 +ifeq ($(SGX_MODE), HW)
-+	Trts_Library_Name := sgx_trts
-+	Service_Library_Name := sgx_tservice
++       Trts_Library_Name := sgx_trts
++       Service_Library_Name := sgx_tservice
 +else ifeq ($(SGX_MODE), SIM)
- 	Trts_Library_Name := sgx_trts_sim
- 	Service_Library_Name := sgx_tservice_sim
++        Trts_Library_Name := sgx_trts_sim
++        Service_Library_Name := sgx_tservice_sim
 +else ifeq ($(SGX_MODE), HYPER)
-+	Trts_Library_Name := sgx_trts_hyper
-+	Service_Library_Name := sgx_tservice_hyper
++       Trts_Library_Name := sgx_trts_hyper
++       Service_Library_Name := sgx_tservice_hyper
  else
  	Trts_Library_Name := sgx_trts
  	Service_Library_Name := sgx_tservice
@@ -72,25 +86,24 @@ index f0eeb8c..8c6fae0 100644
  
  ######## App Objects ########
 diff --git a/sefs-cli/app/build.rs b/sefs-cli/app/build.rs
-index 4bf4c0a..96391ac 100644
+index 1f6c049..33bd9dc 100644
 --- a/sefs-cli/app/build.rs
 +++ b/sefs-cli/app/build.rs
-@@ -14,6 +14,7 @@ fn main() {
-     match is_sim.as_ref() {
-         "SW" | "SIM" => println!("cargo:rustc-link-lib=static=sgx_urts_sim_with_se_event"),
-         "HW" => println!("cargo:rustc-link-lib=dylib=sgx_urts"),
-+        "HYPER" => println!("cargo:rustc-link-lib=static=sgx_urts_hyper_with_se_event"),
-         _ => println!("cargo:rustc-link-lib=dylib=sgx_urts"), // Treat undefined as HW
-     }
- 
-@@ -21,6 +22,7 @@ fn main() {
-     match is_sim.as_ref() {
-         "SW" | "SIM" => println!("cargo:rustc-link-lib=dylib=sgx_uae_service_sim"),
-         "HW" => println!("cargo:rustc-link-lib=dylib=sgx_uae_service"),
-+        "HYPER" => println!("cargo:rustc-link-lib=dylib=sgx_uae_service_hyper"),
-         _ => println!("cargo:rustc-link-lib=dylib=sgx_uae_service"), // Treat undefined as HW
-     }
- 
+@@ -28,6 +28,14 @@ fn main() {
+             println!("cargo:rustc-link-lib=dylib=sgx_urts");
+             println!("cargo:rustc-link-lib=dylib=sgx_uae_service");
+         }
++        "HYPER" => {
++            println!("cargo:rustc-link-arg=-lsgx_urts_hyper_with_se_event");
++            println!("cargo:rustc-link-arg=-Wl,-Bdynamic");
++            println!("cargo:rustc-link-arg=-lsgx_uae_service_hyper");
++            println!("cargo:rustc-link-arg=-lcrypto");
++            // Must link with C++ dynamic library
++            println!("cargo:rustc-link-arg=-lstdc++");
++        }
+         _ => {
+             println!("cargo:rustc-link-lib=dylib=sgx_urts");
+             println!("cargo:rustc-link-lib=dylib=sgx_uae_service");
 diff --git a/sefs-cli/enclave/Enclave.config.xml b/sefs-cli/enclave/Enclave.config.xml
 index 109fcd2..e69f2b6 100644
 --- a/sefs-cli/enclave/Enclave.config.xml
@@ -119,3 +132,6 @@ index 92bebf2..d93532c 100644
      local:
          *;
  };
+-- 
+2.25.1
+
