@@ -21,11 +21,12 @@ new_json="$(jq '.resource_limits.user_space_size = "8000MB" |
 echo "${new_json}" > Occlum.json
 
 # Create external mount point
-rm -rf ../pg_data && mkdir -p ../pg_data
+rm -rf ../pg_data
+mkdir -p ../pg_data/upper && mkdir -p ../pg_data/lower
 mkdir image/pg_data
 
 # Put PG data in external mount
-new_json="$(cat Occlum.json | jq '.mount+=[{"target": "/pg_data","type": "sefs", "source": "../pg_data"}]')" && \
+new_json="$(cat Occlum.json | jq '.mount+=[{"target": "/pg_data","type": "unionfs", "options": {"layers":[{"target": "/pg_data", "type": "sefs", "source": "../pg_data/lower"},{"target": "/pg_data", "type": "sefs", "source": "../pg_data/upper"}]}}]')" && \
 echo "${new_json}" > Occlum.json
 
 # A root passwd is required for initdb
