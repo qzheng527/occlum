@@ -12,7 +12,8 @@ copy_bom -f ../pg.yaml --root image --include-dir /opt/occlum/etc/template
 cp /lib/x86_64-linux-gnu/libcrypt.so.1 image/opt/occlum/glibc/lib/
 
 new_json="$(jq '.resource_limits.user_space_size = "8000MB" |
-                .resource_limits.kernel_space_heap_size ="1000MB" |
+                .resource_limits.kernel_space_heap_size = "2000MB" |
+                .resource_limits.kernel_space_heap_max_size = "2000MB" |
                 .resource_limits.max_num_of_threads = 96 |
                 .env.default = [ "PATH=/usr/local/pgsql/bin" ] |
                 .env.default += ["PYTHONHOME=/opt/python-occlum"] |
@@ -27,6 +28,10 @@ mkdir image/pg_data
 
 # Put PG data in external mount
 new_json="$(cat Occlum.json | jq '.mount+=[{"target": "/pg_data","type": "unionfs", "options": {"layers":[{"target": "/pg_data", "type": "sefs", "source": "../pg_data/lower"},{"target": "/pg_data", "type": "sefs", "source": "../pg_data/upper"}]}}]')" && \
+echo "${new_json}" > Occlum.json
+
+# Set /tmp directory as ramfs
+new_json="$(cat Occlum.json | jq '.mount+=[{"target": "/tmp", "type": "ramfs"}]')" && \
 echo "${new_json}" > Occlum.json
 
 # A root passwd is required for initdb
