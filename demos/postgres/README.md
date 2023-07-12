@@ -33,14 +33,6 @@ Occlum doesn't implement all syscalls. So some syscalls could be replaced/ignore
 
 All above changes could be found on the [patch](./0001-Make-pg15-running-on-Occlum.patch).
 
-
-## Build and install
-
-Just run the script [`build_pg.sh`](./build_pg.sh). If everything goes well, it builds and installs PostgreSQL 15.2, and extensions PostGIS, Citus in the host `/usr/local/pgsql`.
-```
-./build_pg.sh
-```
-
 ## Create and Download Python Packages
 
 PG supports define python functions. To use python function, the required python and packages should get prepared first. Occlum recommends using **Conda** for this purpose. Details please check script [`install_python_with_conda.sh`](./install_python_with_conda.sh). Users could customize the packages in the script.
@@ -48,6 +40,13 @@ PG supports define python functions. To use python function, the required python
 In our case, just run the script for the preparation.
 ```
 ./install_python_with_conda.sh
+```
+
+## Build and install
+
+Just run the script [`build_pg.sh`](./build_pg.sh). If everything goes well, it builds and installs PostgreSQL 15.2, and extensions PostGIS, Citus in the host `/usr/local/pgsql`.
+```
+./build_pg.sh
 ```
 
 ## Build the Occlum Instance
