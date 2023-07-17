@@ -39,7 +39,6 @@ targets:
           - /opt/occlum/glibc/lib/libnss_files.so.2
           - /opt/occlum/glibc/lib/libnss_db.so.2
           - /usr/local/pgsql/lib/postgis-3.so
-          - /usr/local/lib/libproj.so.9
           - /usr/local/pgsql/lib/postgis_raster-3.so
           - /usr/local/pgsql/lib/citus.so
           - /usr/local/pgsql/lib/citus_columnar.so

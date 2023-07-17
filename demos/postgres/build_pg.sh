@@ -17,19 +17,6 @@ function dl_build_install_pg()
     popd
 }
 
-function dl_build_install_proj()
-{
-    # build and install proj
-    rm -rf proj-4.9.1*
-    curl -O http://download.osgeo.org/proj/proj-4.9.1.tar.gz
-    tar zxvf proj-4.9.1.tar.gz
-    pushd proj-4.9.1
-    ./configure
-    make -j$(nproc)
-    make install
-    popd
-}
-
 function dl_build_install_postgis()
 {
     # build and install postgis
@@ -37,7 +24,7 @@ function dl_build_install_postgis()
     wget http://postgis.net/stuff/postgis-3.3.3dev.tar.gz
     tar -xvzf postgis-3.3.3dev.tar.gz
     pushd postgis-3.3.3dev
-    ./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config --with-projdir=/usr/local --without-protobuf
+    ./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config --without-protobuf
     make -j$(nproc)
     make install
     popd
@@ -60,6 +47,5 @@ dl_build_install_pg
 
 echo "Download, build and install PostGIS ..."
 # Please refer to https://postgis.net/docs/postgis_installation.html#make_install_postgis_extensions
-dl_build_install_proj
 dl_build_install_postgis
 dl_build_install_citus
