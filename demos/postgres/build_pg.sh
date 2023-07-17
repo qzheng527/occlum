@@ -14,6 +14,25 @@ function dl_build_install_pg()
         --with-python --with-openssl PYTHON=../python-occlum/bin/python
     make -j$(nproc)
     make install
+
+    # Build and install some plugins
+    pushd contrib
+
+    pushd postgres_fdw
+    make
+    make install
+    popd
+
+    pushd pgcrypto
+    make
+    make install
+    popd
+
+    pushd pg_stat_statements
+    make
+    make install
+    popd
+
     popd
 }
 
