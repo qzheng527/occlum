@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1693434338099,
+  "lastUpdate": 1693434951538,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -526,6 +526,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "Receiver Average Rate",
             "value": 2308,
+            "unit": "Mbits/sec",
+            "extra": "receiver"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Qi Zheng",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "volcano",
+            "username": "volcano0dr",
+            "email": "volcano.dr@hotmail.com"
+          },
+          "id": "b3e7142c746b4b7006307e38072d9fd54b053748",
+          "message": "[tools] Add options to not build init_ra binary",
+          "timestamp": "2023-08-14T08:48:37Z",
+          "url": "https://github.com/qzheng527/occlum/commit/b3e7142c746b4b7006307e38072d9fd54b053748"
+        },
+        "date": 1693434950624,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Sender Average Rate",
+            "value": 2304,
+            "unit": "Mbits/sec",
+            "extra": "sender"
+          },
+          {
+            "name": "Receiver Average Rate",
+            "value": 2304,
             "unit": "Mbits/sec",
             "extra": "receiver"
           }
