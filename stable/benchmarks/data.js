@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1694299162928,
+  "lastUpdate": 1694644055168,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -800,6 +800,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "Receiver Average Rate",
             "value": 2291,
+            "unit": "Mbits/sec",
+            "extra": "receiver"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Qi Zheng",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "volcano",
+            "username": "volcano0dr",
+            "email": "volcano.dr@hotmail.com"
+          },
+          "id": "d3b93dd8b0868e55693de7890c26d92b3c605505",
+          "message": "[readthedocs] Add QA for how to modify timezone in Occlum",
+          "timestamp": "2023-09-05T02:37:51Z",
+          "url": "https://github.com/qzheng527/occlum/commit/d3b93dd8b0868e55693de7890c26d92b3c605505"
+        },
+        "date": 1694644054252,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Sender Average Rate",
+            "value": 2290,
+            "unit": "Mbits/sec",
+            "extra": "sender"
+          },
+          {
+            "name": "Receiver Average Rate",
+            "value": 2290,
             "unit": "Mbits/sec",
             "extra": "receiver"
           }
