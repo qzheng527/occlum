@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1695854765167,
+  "lastUpdate": 1696113081727,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -1200,6 +1200,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "Receiver Average Rate",
             "value": 2315,
+            "unit": "Mbits/sec",
+            "extra": "receiver"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "id": "577715f2e5a53d7b1cffb2c14ba87796a7800840",
+          "message": "[ci] Add ci for Occlum runtime docker image build and push",
+          "timestamp": "2023-09-26T07:13:16Z",
+          "url": "https://github.com/qzheng527/occlum/commit/577715f2e5a53d7b1cffb2c14ba87796a7800840"
+        },
+        "date": 1696113080809,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Sender Average Rate",
+            "value": 2297,
+            "unit": "Mbits/sec",
+            "extra": "sender"
+          },
+          {
+            "name": "Receiver Average Rate",
+            "value": 2297,
             "unit": "Mbits/sec",
             "extra": "receiver"
           }
