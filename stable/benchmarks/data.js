@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1697064766443,
+  "lastUpdate": 1697322829983,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -872,6 +872,52 @@ window.BENCHMARK_DATA = {
           {
             "name": "Thread 95th Percentile Latency",
             "value": 450.77,
+            "unit": "ms",
+            "extra": "per95"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "id": "577715f2e5a53d7b1cffb2c14ba87796a7800840",
+          "message": "[ci] Add ci for Occlum runtime docker image build and push",
+          "timestamp": "2023-09-26T07:13:16Z",
+          "url": "https://github.com/qzheng527/occlum/commit/577715f2e5a53d7b1cffb2c14ba87796a7800840"
+        },
+        "date": 1697322829029,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Threads Minimum latency",
+            "value": 0.55,
+            "unit": "ms",
+            "extra": "min"
+          },
+          {
+            "name": "Threads Average Latency",
+            "value": 80.51,
+            "unit": "ms",
+            "extra": "avg"
+          },
+          {
+            "name": "Threads Maximum Latency",
+            "value": 1924.47,
+            "unit": "ms",
+            "extra": "max"
+          },
+          {
+            "name": "Thread 95th Percentile Latency",
+            "value": 442.73,
             "unit": "ms",
             "extra": "per95"
           }
