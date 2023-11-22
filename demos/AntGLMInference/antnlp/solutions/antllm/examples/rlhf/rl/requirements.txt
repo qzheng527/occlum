@@ -1,0 +1,4 @@
+transformers==4.31.0
+accelerate==0.21.0
+http://alps-common.oss-cn-hangzhou-zmf.aliyuncs.com/users/xuantai/llm/atorch-0.0.1.dev0-py3-none-any.whl
+deepspeed==0.9.3

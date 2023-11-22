@@ -1,0 +1,38 @@
+{
+  "distill_method": "hard_target",
+  "trainer_type": "GlmTrainer",
+  "train_config": {
+    "output_dir": "./output",
+    "training_config_path": null,
+    "deepspeed_config_path": null,
+    "use_atorch": false,
+    "epoch": 1
+  },
+  "student_fine_tune": {
+    "do_fine_tune": true,
+    "use_atorch": false,
+    "output_dir": "./output_finetune",
+    "training_config_path": null,
+    "deepspeed_config_path": null,
+    "epoch": 1
+  },
+  "data_config": {
+    "max_source_length": 500,
+    "max_target_length": 32,
+    "preprocessing_num_workers": 4,
+    "input_key": "input",
+    "output_key": "output"
+  },
+  "teacher_fine_tune": {
+    "fine_tuned_path": "./fine_tuned_teacher",
+    "use_atorch": false,
+    "do_fine_tune": true,
+    "training_config_path": null,
+    "deepspeed_config_path": null,
+    "num_train_epochs": 1
+  },
+  "teacher_predict_config": {
+    "max_output_length": 120,
+    "batch_size": 2
+  }
+}

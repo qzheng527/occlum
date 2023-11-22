@@ -1,0 +1,8 @@
+torch==2.0.0
+torchaudio==2.0.1
+torchtyping==0.1.4 
+torchvision==0.15.1 
+transformers==4.30.2 
+sentencepiece==0.1.97
+accelerate==0.18.0
+Cython==0.29.26

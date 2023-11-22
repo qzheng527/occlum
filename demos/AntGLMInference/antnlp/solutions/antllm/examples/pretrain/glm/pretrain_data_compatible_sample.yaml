@@ -1,0 +1,22 @@
+type: WeightedDataset
+args:
+  datasets:
+    -
+      type: GLMBlockDataset
+      args:
+        name: d1
+        data_path: [PATH TO PREPROCESSED GLM PRETRAIN DATA]
+        need_tokenize: false
+        lazy_loader_opt: v1
+        scatter_num: 32
+        load_old_format: true
+    -
+      type: GLMBlockDataset
+      args:
+        name: d2
+        data_path: [PATH TO PREPROCESSED GLM PRETRAIN DATA]
+        need_tokenize: false
+        lazy_loader_opt: v1
+        scatter_num: 32
+        load_old_format: true
+  weights: [1, 1]

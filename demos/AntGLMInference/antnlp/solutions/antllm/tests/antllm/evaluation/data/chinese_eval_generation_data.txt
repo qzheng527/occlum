@@ -1,0 +1,3 @@
+{"references": ["残灯灭又明", "残灯暗复明", "残灯灭又明"], "predictions": ["渔灯灭复明"]}
+{"references": ["万里绝妖氛"], "predictions": ["万里绝妖氛"]}
+{"references": ["况欲系其尾", "豹来衔其尾", "谁船系其下", "我欲据其巅"], "predictions": ["况欲系其尾"]}

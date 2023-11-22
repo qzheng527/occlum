@@ -1,0 +1,68 @@
+train: 
+  seq_length: 1024
+  epochs: 100000
+  total_steps: 100000
+  batch_size: 4
+  checkpoint_interval: 1000
+  eval_interval: 200
+  pipeline: GlmPipeline
+  trainer: AcceleratePPOMixTrainer
+  tracker: tensorboard
+  logging_dir: /ossfs/workspace/model/BoN/antglm-10b-sft/logs
+  checkpoint_dir: /ossfs/workspace/pretrained_models/antglm-10b-sft/ckpt
+  max_norm: 1.0
+  gradient_accumulation_steps: 2
+model:
+  model_path: /ossfs/workspace/rlhf_new_rm
+  model_arch_type: glm
+  num_layers_unfrozen: 2
+tokenizer:
+  tokenizer_path: /ossfs/workspace/rlhf_new_rm
+  truncation_side: left
+  padding_side: right
+optimizer:
+  name: adamw
+  kwargs:
+    lr: 1.0e-6
+    betas: 
+      - 0.9
+      - 0.95
+    eps: 1.0e-8
+    weight_decay: 0.01
+scheduler:
+  name: cosine_warmup
+  kwargs:
+    num_warmup_steps: 1000
+    num_training_steps: 100000
+method:
+  name: PPOMixConfig
+  num_rollouts: 4
+  chunk_size: 4
+  ppo_epochs: 1
+  init_kl_coef: 0.02
+  # target: 6
+  target: null
+  horizon: 10000
+  gamma: 1
+  lam: 0.95
+  cliprange: 0.2
+  cliprange_value: 0.2
+  vf_coef: 1.0
+  scale_reward: running
+  ref_mean: null
+  ref_std: null
+  cliprange_reward: 50
+  ent_coef: 0.01
+  clip_ratio: true
+  gen_kwargs:
+    max_new_tokens: 224
+    do_sample: true
+    temperature: 1.0
+    top_k: 50
+    top_p: 0.95
+  gen_experience_kwargs:
+    max_new_tokens: 224
+    do_sample: true
+    temperature: 1.0
+    top_k: 50
+    top_p: 0.95

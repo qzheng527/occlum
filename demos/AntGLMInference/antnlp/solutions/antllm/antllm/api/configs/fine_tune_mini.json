@@ -1,0 +1,22 @@
+{
+    "lm_type": "seq2seq",
+    "do_train": "",
+    "fp16": "",
+    "max_length": "220",
+    "max_input_length": "100",
+    "max_output_length": "100",
+    "evaluation_strategy": "epoch",
+    "save_strategy": "epoch",
+    "save_steps": "1",
+    "eval_steps": "1",
+    "eval_accumulation_steps": "10",
+    "per_device_train_batch_size": "1",
+    "per_device_eval_batch_size": "1",
+    "gradient_accumulation_steps": "1",
+    "num_train_epochs": "1",
+    "logging_steps": "50",
+    "learning_rate": "3e-6",
+    "weight_decay": "0.1",
+    "warmup_ratio": "0.06",
+    "overwrite_output_dir": ""
+}

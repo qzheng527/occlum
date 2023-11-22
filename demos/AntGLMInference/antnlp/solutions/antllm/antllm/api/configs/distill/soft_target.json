@@ -1,0 +1,11 @@
+{
+    "distill_method": "soft_target",
+    "training_config_path": null,
+    "deepspeed_config_path": null,
+    "logit_weight": 1,
+    "hard_target_weight": 1,
+    "hidden_state_cos_weight": 0.0,
+    "hidden_state_mse_weight": 0.0,
+    "hidden_states_mes_mapping": "1:1,3:2,-1:-1",
+    "temperature": 2
+}

@@ -1,0 +1,18 @@
+type: WeightedDataset
+args:
+  datasets:
+    -
+      type: TextDataset
+      args:
+        name: d1
+        data_path: toy_pretrain_data.jsonl
+        tokenize_keys: [content]
+        lazy_loader_opt: naive
+    -
+      type: TextDataset
+      args:
+        name: d2
+        data_path: toy_pretrain_data.jsonl
+        tokenize_keys: [content]
+        lazy_loader_opt: naive
+  weights: [1, 1]

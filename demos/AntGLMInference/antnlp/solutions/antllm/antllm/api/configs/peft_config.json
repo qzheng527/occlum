@@ -1,0 +1,14 @@
+{
+    "double_quant": true,
+    "lora_rank": 8,
+    "lora_alpha": 32,
+    "lora_dropout": 0.1,
+    "adalora_init_rank": 40,
+    "adalora_target_rank": 32,
+    "num_virtual_tokens": 20,
+    "encoder_hidden_size": 128,
+    "ptuning_encoder_num_layers": 2,
+    "ptuning_encoder_dropout": 0.1,
+    "quant_type": "nf4",
+    "bits": 4
+}

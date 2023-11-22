@@ -1,0 +1,583 @@
+{
+    "BIG-Bench-Hard": {
+        "metric": [
+            "BBH"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [],
+        "task": "问答",
+        "max_output_length":100,
+        "dataset": "GLMEvalGenDataset",
+        "batch_size": 4,
+        "method": "zero-shot",
+        "test_file": "test_prompts.1k.json",
+        "data_link": "",
+        "code_link": "",
+        "is_key_dataset": true
+    },
+    "AGIEval": {
+        "metric": [
+            "AccuracyMacro"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [],
+        "task": "问答",
+        "max_output_length":1,
+        "dataset": "GLMEvalGenDataset",
+        "method": "zero-shot",
+        "option_rank": "logit",
+        "data_link": "",
+        "code_link": "",
+        "test_file": "test_prompts.json",
+        "is_key_dataset": true
+    },
+    "CEval": {
+        "metric": [
+            "AccuracyMacro"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [],
+        "task": "问答",
+        "max_output_length":1,
+        "dataset": "GLMEvalGenDataset",
+        "method": "zero-shot",
+        "option_rank": "logit",
+        "data_link": "",
+        "code_link": "",
+        "test_file": "test_prompts.json",
+        "is_key_dataset": true
+    },
+    "ai2_arc_ARC_Challenge": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "LLaMA"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/ai2_arc",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "piqa": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "LLaMA",
+            "GPT3"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/piqa",
+        "code_link": "https://github.com/bigscience-workshop/t-zero/tree/master/evaluation",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "hellaswag": {
+        "metric": [
+            "Accuracy",
+            "CalibrationError",
+            "Robustness",
+            "Fairness",
+            "GenderRepresentation"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "InstructGPT",
+            "LLaMA",
+            "GPT3,HELM"
+        ],
+        "task": "文本补全",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/hellaswag",
+        "code_link": "https://github.com/bigscience-workshop/t-zero/tree/master/evaluation",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "SIQA": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "LLaMA"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/social_i_qa",
+        "code_link": "",
+        "is_key_dataset": false
+    },
+    "OBQA": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "LLAMA",
+            "GPT3",
+            "HELM"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "code_link": "",
+        "is_key_dataset": true
+    },
+    "SAT_Analogies": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "人类考试",
+        "language": "英文",
+        "papers": [
+            "GPT4",
+            "GPT3"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "COLD": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "毒性",
+        "language": "中文",
+        "papers": [
+            ""
+        ],
+        "task": "毒性检测",
+        "method": "zero-shot",
+        "data_link": "",
+        "option_rank": "logit",
+        "code_link": "https://github.com/stanford-crfm/helm/blob/main/src/helm/benchmark/metrics/toxicity_metrics.py",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "RTE": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "GPT3",
+            "GLM",
+            "InstructGPT"
+        ],
+        "task": "文本匹配",
+        "method": "zero-shot",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/SuperGLUE/",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "anli": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "GPT3",
+            "T0",
+            "PaLM"
+        ],
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "task": "文本匹配",
+        "method": "zero-shot",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/data/评测数据集",
+        "code_link": "",
+        "is_key_dataset": true
+    },
+    "OCNLI": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3",
+            "支小宝"
+        ],
+        "task": "文本匹配",
+        "method": "finetune/zero-shot（Ernie3里面均有）",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "CMNLI": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3",
+            "支小宝"
+        ],
+        "task": "文本匹配",
+        "method": "finetune/zero-shot（Ernie3里面均有）",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE ",
+        "is_key_dataset": true
+    },
+    "CLUEWSC2020": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3",
+            "支小宝"
+        ],
+        "task": "共指消解",
+        "method": "zero-shot",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE ",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "TNEWS": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3"
+        ],
+        "task": "文本分类",
+        "method": "finetune/zero-shot（Ernie3里面均有）",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "IFLYTEK": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3"
+        ],
+        "task": "文本分类",
+        "method": "finetune/zero-shot（Ernie3里面均有）",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "CSL": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3"
+        ],
+        "task": "文本分类",
+        "method": "finetune/zero-shot（Ernie3里面均有）",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "ChID": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "中文",
+        "papers": [
+            "Ernie3"
+        ],
+        "task": "阅读理解",
+        "method": "zero-shot",
+        "data_link": "oss://antsys-adabrain/solutions/chatgpt/benchmark/public/CLUE/",
+        "code_link": "https://github.com/CLUEbenchmark/CLUE",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "TriviaQA": {
+        "metric": [
+            "TriviaQA"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "LLAMA",
+            "GPT3"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/trivia_qa",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": false
+    },
+    "NarrativeQA": {
+        "metric": [
+            "Accuracy",
+            "CalibrationError",
+            "Robustness",
+            "Fairness",
+            "GenderRepresentation",
+            "Toxicity",
+            "F1"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "HELM"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/narrativeqa",
+        "code_link": "",
+        "is_key_dataset": false
+    },
+    "LAMBADA": {
+        "metric": [
+            "Accuracy",
+            "Perplexity"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "GPT3",
+            "GLM"
+        ],
+        "task": "语言语言模型评估",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/lambada",
+        "code_link": "https://github.com/stanford-crfm/helm/blob/main/src/helm/benchmark/metrics/classification_metrics.py",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": false
+    },
+    "MMLU": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "推理能力",
+        "language": "英文",
+        "papers": [
+            "LLAMA",
+            "HELM"
+        ],
+        "task": "问答",
+        "max_output_length":1,
+        "dataset": "GLMEvalGenDataset",
+        "method": "5-shot",
+        "option_rank":"logit",
+        "test_file":"test_prompts.json",
+        "data_link": "https://github.com/hendrycks/test",
+        "code_link": "https://github.com/stanford-crfm/helm/blob/main/src/helm/benchmark/metrics/classification_metrics.py",
+        "is_key_dataset": true
+    },
+    "BIG-bench_strategyqa": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "推理能力",
+        "language": "英文",
+        "papers": [
+            "Chinchilla",
+            "PaLM",
+            "GLM",
+            "T0"
+        ],
+        "task": "问答",
+        "method": "5-shot",
+        "data_link": "https://github.com/google/BIG-bench",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "BIG-bench_winowhy": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "推理能力",
+        "language": "英文",
+        "papers": [
+            "Chinchilla",
+            "PaLM",
+            "GLM",
+            "T0"
+        ],
+        "task": "问答",
+        "method": "5-shot",
+        "data_link": "https://github.com/google/BIG-bench",
+        "code_link": "",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "super_glue_record": {
+        "metric": [
+            "F1",
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "GPT3",
+            "GLM"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://super.gluebenchmark.com/tasks",
+        "code_link": "https://github.com/nyu-mll/jiant",
+        "is_key_dataset": false
+    },
+    "super_glue_boolq": {
+        "metric": [
+            "Accuracy",
+            "CalibrationError",
+            "Robustness",
+            "Fairness",
+            "GenderRepresentation",
+            "Toxicity"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "LLaMA",
+            "GPT3",
+            "GLM"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://super.gluebenchmark.com/tasks",
+        "code_link": "https://github.com/nyu-mll/jiant",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "super_glue_copa": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "GPT3",
+            "GLM"
+        ],
+        "task": "因果推理",
+        "method": "zero-shot",
+        "data_link": "https://super.gluebenchmark.com/tasks",
+        "code_link": "https://github.com/nyu-mll/jiant",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "winogrande_xl": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "LLaMA"
+        ],
+        "task": "Coreference Resolution",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/winogrande",
+        "code_link": "https://github.com/bigscience-workshop/t-zero/tree/master/evaluation",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    },
+    "race_high": {
+        "metric": [
+            "Accuracy"
+        ],
+        "ability": "泛化能力",
+        "language": "英文",
+        "papers": [
+            "T0",
+            "LLAMA",
+            "GPT3"
+        ],
+        "task": "问答",
+        "method": "zero-shot",
+        "data_link": "https://huggingface.co/datasets/race",
+        "code_link": "https://github.com/bigscience-workshop/t-zero/tree/master/evaluation",
+        "dataset": "GLMPretrainEvalDataset",
+        "test_file": "test_prompts.pretrain.json",
+        "option_rank":"loss",
+        "is_key_dataset": true
+    }
+}

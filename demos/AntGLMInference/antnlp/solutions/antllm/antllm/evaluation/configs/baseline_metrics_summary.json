@@ -1,0 +1,2731 @@
+{
+    "ai2_arc_ARC_Challenge": {
+        "size": 1172,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 51.4
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 52.5
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 53.0
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 47.6
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 52.7
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 57.8
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 56.0
+                }
+            }
+        }
+    },
+    "anli": {
+        "size": 1200,
+        "data_category": "test",
+        "models": {
+            "T0-3B": {
+                "zero-shot": {
+                    "Accuracy": 33.33
+                }
+            },
+            "T0": {
+                "zero-shot": {
+                    "Accuracy": 41.26
+                }
+            },
+            "T0+": {
+                "zero-shot": {
+                    "Accuracy": 40.76
+                }
+            },
+            "T0++": {
+                "zero-shot": {
+                    "Accuracy": 44.09
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 35.3
+                },
+                "one-shot": {
+                    "Accuracy": 34.1
+                },
+                "few-shot": {
+                    "Accuracy": 32.7
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 34.8
+                },
+                "one-shot": {
+                    "Accuracy": 33.1
+                },
+                "few-shot": {
+                    "Accuracy": 33.9
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 34.4
+                },
+                "one-shot": {
+                    "Accuracy": 32.5
+                },
+                "few-shot": {
+                    "Accuracy": 34.5
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 34.5
+                },
+                "one-shot": {
+                    "Accuracy": 35.1
+                },
+                "few-shot": {
+                    "Accuracy": 40.2
+                }
+            }
+        }
+    },
+    "BIG-bench": {
+        "size": 0,
+        "data_category": "neither",
+        "models": {
+            "T0": {
+                "zero-shot": {
+                    "Code Description": 36.67,
+                    "Conceptual": 62.50,
+                    "Hindu Knowledge": 36.00,
+                    "Known Unknowns": 63.04,
+                    "Language ID": 20.68,
+                    "Logic Grid": 39.60,
+                    "Logical Deduction": 55.40,
+                    "Misconceptions": 52.51,
+                    "Movie Dialog": 53.83,
+                    "Novel Concepts": 15.62,
+                    "Strategy QA": 52.73,
+                    "Syllogisms": 51.79,
+                    "Vitamin C": 64.73,
+                    "Winowhy": 47.38
+                }
+            },
+            "T0+": {
+                "zero-shot": {
+                    "Code Description": 53.33,
+                    "Conceptual": 81.25,
+                    "Hindu Knowledge": 38.29,
+                    "Known Unknowns": 63.04,
+                    "Language ID": 20.80,
+                    "Logic Grid": 39.50,
+                    "Logical Deduction": 44.20,
+                    "Misconceptions": 52.97,
+                    "Movie Dialog": 54.05,
+                    "Novel Concepts": 31.25,
+                    "Strategy QA": 54.00,
+                    "Syllogisms": 50.53,
+                    "Vitamin C": 66.24,
+                    "Winowhy": 45.84
+                }
+            },
+            "T0++": {
+                "zero-shot": {
+                    "Code Description": 58.33,
+                    "Conceptual": 75.00,
+                    "Hindu Knowledge": 40.00,
+                    "Known Unknowns": 52.17,
+                    "Language ID": 22.17,
+                    "Logic Grid": 39.40,
+                    "Logical Deduction": 43.60,
+                    "Misconceptions": 54.79,
+                    "Movie Dialog": 53.97,
+                    "Novel Concepts": 28.12,
+                    "Strategy QA": 54.39,
+                    "Syllogisms": 50.31,
+                    "Vitamin C": 70.00,
+                    "Winowhy": 48.15
+                }
+            },
+            "PaLM-62B-795B-tokens": {
+                "five-shot": {
+                    "average_score": 32.4
+                }
+            },
+            "PaLM-62B-1325B-tokens": {
+                "five-shot": {
+                    "average_score": 40.8
+                }
+            },
+            "PaLM-540B-780B-tokens": {
+                "five-shot": {
+                    "average_score": 53.7
+                }
+            }
+        }
+    },
+    "super_glue_boolq": {
+        "size": 3270,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 60.5
+                }
+            },
+            "Gopher-280B": {
+                "zero-shot": {
+                    "Accuracy": 79.3
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "Accuracy": 83.7
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 84.8
+                }
+            },
+            "PaLM-cont-62B": {
+                "zero-shot": {
+                    "Accuracy": 83.9
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 88.0
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 76.5
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 78.1
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 83.1
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 85.3
+                }
+            },
+            "GLM-large": {
+                "zero-shot": {
+                    "Accuracy": 82.1
+                }
+            },
+            "text-davinci-003": {
+                "five-shot": {
+                    "EM ": 88.1,
+                    "CalibrationError": 9.8
+                }
+            },
+            "text-davinci-002": {
+                "five-shot": {
+                    "EM ": 87.7,
+                    "CalibrationError": 6.4
+                }
+            },
+            "Cohere-Command-beta-52.4B": {
+                "five-shot": {
+                    "EM ": 85.6,
+                    "CalibrationError": 2.3
+                }
+            },
+            "J1-Grande-v2-beta-17B": {
+                "five-shot": {
+                    "EM ": 81.2,
+                    "CalibrationError": 16.7
+                }
+            }
+        }
+    },
+    "CHID": {
+        "size": 18644,
+        "data_category": "dev",
+        "models": {
+            "CPM-1": {
+                "zero-shot": {
+                    "Accuracy": 68.62
+                }
+            },
+            "PanGu-2.6B": {
+                "zero-shot": {
+                    "Accuracy": 68.73
+                }
+            },
+            "PanGu-13B": {
+                "zero-shot": {
+                    "Accuracy": 70.64
+                }
+            },
+            "Ernie3": {
+                "zero-shot": {
+                    "Accuracy": 77.78
+                },
+                "fine-tuning": {
+                    "Accuracy": 91.67
+                }
+            }
+        }
+    },
+    "CLUEWSC2020": {
+        "size": 304,
+        "data_category": "dev",
+        "models": {
+            "CPM-1": {
+                "zero-shot": {
+                    "Accuracy": 73.68
+                }
+            },
+            "PanGu-2.6B": {
+                "zero-shot": {
+                    "Accuracy": 73.36
+                }
+            },
+            "PanGu-13B": {
+                "zero-shot": {
+                    "Accuracy": 75.00
+                }
+            },
+            "Ernie3": {
+                "zero-shot": {
+                    "Accuracy": 78.38
+                },
+                "fine-tuning": {
+                    "Accuracy": 95.40
+                }
+            }
+        }
+    },
+    "CMNLI": {
+        "size": 12426,
+        "data_category": "dev",
+        "models": {
+            "CPM-1": {
+                "zero-shot": {
+                    "Accuracy": 49.10
+                }
+            },
+            "PanGu-2.6B": {
+                "zero-shot": {
+                    "Accuracy": 47.56
+                }
+            },
+            "PanGu-13B": {
+                "zero-shot": {
+                    "Accuracy": 49.29
+                }
+            },
+            "Ernie3": {
+                "zero-shot": {
+                    "Accuracy": 49.41
+                }
+            }
+        }
+    },
+    "CMRC2018": {
+        "size": 3219,
+        "data_category": "dev",
+        "models": {
+            "CPM-1": {
+                "zero-shot": {
+                    "EM": 0.59,
+                    "F1": 10.12
+                }
+            },
+            "PanGu-2.6B": {
+                "zero-shot": {
+                    "EM": 1.21,
+                    "F1": 16.65
+                }
+            },
+            "PanGu-13B": {
+                "zero-shot": {
+                    "EM": 1.46,
+                    "F1": 19.28
+                }
+            },
+            "Ernie3": {
+                "zero-shot": {
+                    "EM": 7.61,
+                    "F1": 25.61
+                },
+                "fine-tuning": {
+                    "EM": 75.30,
+                    "F1": 92.29
+                }
+            }
+        }
+    },
+    "cnn_dailymail_3.0.0": {
+        "size": 11490,
+        "data_category": "test",
+        "models": {
+            "BERTSumAbs": {
+                "fine-tuning": {
+                    "RG-1": 41.7,
+                    "RG-2": 19.4,
+                    "RG-L": 38.8
+                }
+            },
+            "UniLMv2-base": {
+                "fine-tuning": {
+                    "RG-1": 43.2,
+                    "RG-2": 20.4,
+                    "RG-L": 40.1
+                }
+            },
+            "T5-large": {
+                "fine-tuning": {
+                    "RG-1": 42.5,
+                    "RG-2": 20.7,
+                    "RG-L": 39.8
+                }
+            },
+            "BART-large": {
+                "fine-tuning": {
+                    "RG-1": 44.2,
+                    "RG-2": 21.3,
+                    "RG-L": 40.9
+                }
+            },
+            "GLM-RoBERTa": {
+                "fine-tuning": {
+                    "RG-1": 43.8,
+                    "RG-2": 21.0,
+                    "RG-L": 40.5
+                }
+            },
+            "GPT3-XL": {
+                "NA": {
+                    "RG-L": 18.2
+                }
+            },
+            "GPT3-6B": {
+                "NA": {
+                    "RG-L": 19.7
+                }
+            },
+            "GPT3-175B": {
+                "NA": {
+                    "RG-L": 19.6
+                }
+            },
+            "Cohere-Command-beta-52.4B": {
+                "five-shot": {
+                    "RG-2": 16.1
+                }
+            }
+        }
+    },
+    "CrowS-Pairs": {
+        "size": 1508,
+        "data_category": "neither",
+        "models": {
+            "T0": {
+                "few-shot": {
+                    "Accuracy": 59.2
+                }
+            },
+            "T0+": {
+                "few-shot": {
+                    "Accuracy": 57.6
+                }
+            },
+            "T0++": {
+                "few-shot": {
+                    "Accuracy": 62.7
+                }
+            },
+            "T0 (p=1)": {
+                "few-shot": {
+                    "Accuracy": 57.6
+                }
+            },
+            "T0-3B": {
+                "few-shot": {
+                    "Accuracy": 56.9
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Bias": 66.6
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Bias": 67.2
+                }
+            },
+            "OPT-175B": {
+                "zero-shot": {
+                    "Bias": 69.5
+                }
+            }
+        }
+    },
+    "CSL": {
+        "size": 3000,
+        "data_category": "dev",
+        "models": {
+            "CPM-1": {
+                "zero-shot": {
+                    "Acccuracy": 52.30
+                }
+            },
+            "PanGu-2.6B": {
+                "zero-shot": {
+                    "Acccuracy": 50.50
+                }
+            },
+            "PanGu-13B": {
+                "zero-shot": {
+                    "Acccuracy": 49.30
+                }
+            },
+            "Ernie3": {
+                "zero-shot": {
+                    "Acccuracy": 55.63
+                },
+                "fine-tune": {
+                    "Acccuracy": 84.50
+                }
+            }
+        }
+    },
+    "DROP": {
+        "size": 9536,
+        "data_category": "dev",
+        "models": {
+            "GPT3-XL": {
+                "zero-shot": {
+                    "F1": 16.4
+                },
+                "one-shot": {
+                    "F1": 23.0
+                },
+                "few-shot": {
+                    "F1": 25.6
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "F1": 19.7
+                },
+                "one-shot": {
+                    "F1": 26.4
+                },
+                "few-shot": {
+                    "F1": 29.7
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "F1": 17.0
+                },
+                "one-shot": {
+                    "F1": 27.3
+                },
+                "few-shot": {
+                    "F1": 29.7
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "F1": 24.0
+                },
+                "one-shot": {
+                    "F1": 29.2
+                },
+                "few-shot": {
+                    "F1": 32.3
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "F1": 23.6
+                },
+                "one-shot": {
+                    "F1": 34.3
+                },
+                "few-shot": {
+                    "F1": 36.5
+                }
+            }
+        }
+    },
+    "GSM8k": {
+        "size": 1319,
+        "data_category": "",
+        "models": {
+            "PaLM-8B": {
+                "eight-shot": {
+                    "Accuracy": 4.10
+                }
+            },
+            "PaLM-62B": {
+                "eight-shot": {
+                    "Accuracy": 33.00
+                }
+            },
+            "PaLM-540B": {
+                "eight-shot": {
+                    "Accuracy": 56.50
+                }
+            },
+            "Minerva-8B": {
+                "eight-shot": {
+                    "Accuracy": 16.20,
+                    "+maj1@100-Accuracy": 28.40
+                }
+            },
+            "Minerva-62B": {
+                "eight-shot": {
+                    "Accuracy": 52.40,
+                    "+maj1@100-Accuracy": 68.50
+                }
+            },
+            "Minerva-540B": {
+                "eight-shot": {
+                    "Accuracy": 68.50,
+                    "+maj1@40-Accuracy": 78.50
+                }
+            },
+            "LLAMA-7B": {
+                "few-shot": {
+                    "Accuracy": 11.00,
+                    "+maj1@100-Accuracy": 18.10
+                }
+            },
+            "LLAMA-13B": {
+                "few-shot": {
+                    "Accuracy": 17.80,
+                    "+maj1@100-Accuracy": 29.30
+                }
+            },
+            "LLAMA-33B": {
+                "few-shot": {
+                    "Accuracy": 35.60,
+                    "+maj1@100-Accuracy": 53.10
+                }
+            },
+            "LLAMA-65B": {
+                "few-shot": {
+                    "Accuracy": 50.90,
+                    "+maj1@100-Accuracy": 69.70
+                }
+            }
+        }
+    },
+    "hellaswag": {
+        "size": 10042,
+        "data_category": "dev",
+        "models": {
+            "InstructGPT-davinci-v2-175B": {
+                "zero-shot": {
+                    "EM": 81.5,
+                    "CalibrationError": 28.6
+                }
+            },
+            "Cohere-xlarge-v20220609-52.4B": {
+                "zero-shot": {
+                    "EM": 81.1,
+                    "CalibrationError": 34.1
+                }
+            },
+            "Anthropic-LM-v4-s3-52B": {
+                "zero-shot": {
+                    "EM": 80.4
+                }
+            },
+            "TNLG-v2-530B": {
+                "zero-shot": {
+                    "EM": 79.9,
+                    "CalibrationError": 32.2
+                }
+            },
+            "OPT-175B": {
+                "zero-shot": {
+                    "EM": 79.1,
+                    "CalibrationError": 32.5
+                }
+            },
+            "T5+LM": {
+                "zero-shot": {
+                    "Accuracy": 27.00
+                }
+            },
+            "T0(p=1)": {
+                "zero-shot": {
+                    "Accuracy": 32.79
+                }
+            },
+            "T0(p=5.7)": {
+                "zero-shot": {
+                    "Accuracy": 35.20
+                }
+            },
+            "T0-3B": {
+                "zero-shot": {
+                    "Accuracy": 27.29
+                }
+            },
+            "T0": {
+                "zero-shot": {
+                    "Accuracy": 33.58
+                }
+            },
+            "T0+": {
+                "non-zero-shot": {
+                    "Accuracy": 86.13
+                }
+            },
+            "T0++": {
+                "non-zero-shot": {
+                    "Accuracy": 86.11
+                }
+            },
+            "Gopher-280B": {
+                "zero-shot": {
+                    "Accuracy": 79.2
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "Accuracy": 80.8
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 79.7
+                }
+            },
+            "PaLM-cont-62B": {
+                "zero-shot": {
+                    "Accuracy": 80.6
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 83.4
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 76.1
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 79.2
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 82.8
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 84.2
+                }
+            },
+            "InstructGPT-XL": {
+                "zero-shot": {
+                    "Accuracy": 55.2
+                },
+                "few-shot": {
+                    "Accuracy": 55.9
+                }
+            },
+            "InstructGPT-6B": {
+                "zero-shot": {
+                    "Accuracy": 69.0
+                },
+                "few-shot": {
+                    "Accuracy": 69.4
+                }
+            },
+            "InstructGPT-175B": {
+                "zero-shot": {
+                    "Accuracy": 80.7
+                },
+                "few-shot": {
+                    "Accuracy": 82.0
+                }
+            },
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 54.7
+                },
+                "one-shot": {
+                    "Accuracy": 53.5
+                },
+                "few-shot": {
+                    "Accuracy": 54.9
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 62.8
+                },
+                "one-shot": {
+                    "Accuracy": 61.9
+                },
+                "few-shot": {
+                    "Accuracy": 62.9
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 67.4
+                },
+                "one-shot": {
+                    "Accuracy": 66.5
+                },
+                "few-shot": {
+                    "Accuracy": 67.3
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 70.9
+                },
+                "one-shot": {
+                    "Accuracy": 70.0
+                },
+                "few-shot": {
+                    "Accuracy": 71.3
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 78.9
+                },
+                "one-shot": {
+                    "Accuracy": 78.1
+                },
+                "few-shot": {
+                    "Accuracy": 79.3
+                }
+            },
+            "text-davinci-003": {
+                "zero-shot": {
+                    "Accuracy": 82.2
+                }
+            }
+        }
+    },
+    "HumanEval": {
+        "size": 164,
+        "data_category": "test",
+        "models": {
+            "LLAMA-7B": {
+                "zero-shot": {
+                    "Pass@1": 10.50,
+                    "Pass@100": 36.50
+                }
+            },
+            "LLAMA-13B": {
+                "zero-shot": {
+                    "Pass@1": 15.80,
+                    "Pass@100": 52.50
+                }
+            },
+            "LLAMA-33B": {
+                "zero-shot": {
+                    "Pass@1": 21.70,
+                    "Pass@100": 70.70
+                }
+            },
+            "LLAMA-65B": {
+                "zero-shot": {
+                    "Pass@1": 23.70,
+                    "Pass@100": 79.30
+                }
+            },
+            "LaMDA": {
+                "zero-shot": {
+                    "Pass@1": 14.00,
+                    "Pass@100": 47.30
+                }
+            },
+            "PaLM-8B": {
+                "zero-shot": {
+                    "Pass@1": 3.60,
+                    "Pass@100": 18.70
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Pass@1": 15.90,
+                    "Pass@100": 46.30
+                }
+            },
+            "PaLM-cont-62B": {
+                "zero-shot": {
+                    "Pass@1": 23.70
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Pass@1": 26.20,
+                    "Pass@100": 76.20
+                }
+            }
+        }
+    },
+    "HumanEvalx": {
+        "size": 820,
+        "data_category": "neither",
+        "models": {
+            "GPT-J-6B": {
+                "zero-shot": {
+                    "Pass@1": 7.90,
+                    "Pass@10": 14.77,
+                    "Pass@100": 30.32
+                }
+            },
+            "GPT-NeoX-20B": {
+                "zero-shot": {
+                    "Pass@1": 9.78,
+                    "Pass@10": 19.55,
+                    "Pass@100": 39.06
+                }
+            },
+            "InCoder-6.7B": {
+                "zero-shot": {
+                    "Pass@1": 11.33,
+                    "Pass@10": 20.25,
+                    "Pass@100": 38.48
+                }
+            },
+            "CodeGen-Multi-6B": {
+                "zero-shot": {
+                    "Pass@1": 14.28,
+                    "Pass@10": 27.89,
+                    "Pass@100": 47.24
+                }
+            },
+            "CodeGen-Multi-16B": {
+                "zero-shot": {
+                    "Pass@1": 16.73,
+                    "Pass@10": 32.09,
+                    "Pass@100": 54.39
+                }
+            },
+            "CodeGeeX-13B": {
+                "zero-shot": {
+                    "Pass@1": 18.40,
+                    "Pass@10": 33.29,
+                    "Pass@100": 54.76
+                }
+            }
+        }
+    },
+    "LAMBADA": {
+        "size": 5153,
+        "data_category": "test",
+        "models": {
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 63.6,
+                    "Perplexity": 5.44
+                },
+                "one-shot": {
+                    "Accuracy": 58.3,
+                    "Perplexity": 6.46
+                },
+                "few-shot": {
+                    "Accuracy": 57.0,
+                    "Perplexity": 7.45
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 67.1,
+                    "Perplexity": 4.60
+                },
+                "one-shot": {
+                    "Accuracy": 61.1,
+                    "Perplexity": 5.53
+                },
+                "few-shot": {
+                    "Accuracy": 78.1,
+                    "Perplexity": 2.89
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 70.3,
+                    "Perplexity": 4.00
+                },
+                "one-shot": {
+                    "Accuracy": 65.4,
+                    "Perplexity": 4.61
+                },
+                "few-shot": {
+                    "Accuracy": 79.1,
+                    "Perplexity": 2.56
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 72.5,
+                    "Perplexity": 3.56
+                },
+                "one-shot": {
+                    "Accuracy": 69.0,
+                    "Perplexity": 4.06
+                },
+                "few-shot": {
+                    "Accuracy": 81.3,
+                    "Perplexity": 2.56
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 76.2,
+                    "Perplexity": 3.00
+                },
+                "one-shot": {
+                    "Accuracy": 72.5,
+                    "Perplexity": 3.35
+                },
+                "few-shot": {
+                    "Accuracy": 86.4,
+                    "Perplexity": 1.92
+                }
+            }
+        }
+    },
+    "MBPP": {
+        "size": 500,
+        "data_category": "neither",
+        "models": {
+            "LLAMA-7B": {
+                "three-shot": {
+                    "Pass@1": 17.70,
+                    "Pass@80": 56.20
+                }
+            },
+            "LLAMA-13B": {
+                "three-shot": {
+                    "Pass@1": 22.00,
+                    "Pass@80": 64.00
+                }
+            },
+            "LLAMA-33B": {
+                "three-shot": {
+                    "Pass@1": 30.20,
+                    "Pass@80": 73.40
+                }
+            },
+            "LLAMA-65B": {
+                "three-shot": {
+                    "Pass@1": 37.70,
+                    "Pass@80": 76.80
+                }
+            },
+            "LaMDA": {
+                "three-shot": {
+                    "Pass@1": 14.80,
+                    "Pass@80": 62.40
+                }
+            },
+            "PaLM-8B": {
+                "three-shot": {
+                    "Pass@1": 5.00,
+                    "Pass@80": 35.70
+                }
+            },
+            "PaLM-62B": {
+                "three-shot": {
+                    "Pass@1": 21.40,
+                    "Pass@80": 63.20
+                }
+            },
+            "PaLM-cont-62B": {
+                "three-shot": {
+                    "Pass@1": 31.20
+                }
+            },
+            "PaLM-540B": {
+                "three-shot": {
+                    "Pass@1": 36.80,
+                    "Pass@80": 75.50
+                }
+            }
+        }
+    },
+    "MMLU": {
+        "size": 14042,
+        "data_category": "test",
+        "models": {
+            "GPT-NeoX": {
+                "five-shot": {
+                    "Accuracy": 33.60
+                }
+            },
+            "GPT-3": {
+                "five-shot": {
+                    "Accuracy": 43.90
+                }
+            },
+            "Gopher": {
+                "five-shot": {
+                    "Accuracy": 60.00
+                }
+            },
+            "Chinchilla": {
+                "five-shot": {
+                    "Accuracy": 67.50
+                }
+            },
+            "PaLM-8B": {
+                "five-shot": {
+                    "Accuracy": 25.40
+                }
+            },
+            "PaLM-62B": {
+                "five-shot": {
+                    "Accuracy": 53.70
+                }
+            },
+            "PaLM-540B": {
+                "five-shot": {
+                    "Accuracy": 69.30
+                }
+            },
+            "LLaMA-7B": {
+                "five-shot": {
+                    "Accuracy": 35.10
+                }
+            },
+            "LLaMA-13B": {
+                "five-shot": {
+                    "Accuracy": 46.90
+                }
+            },
+            "LLaMA-33B": {
+                "five-shot": {
+                    "Accuracy": 57.80
+                }
+            },
+            "LLaMA-65B": {
+                "five-shot": {
+                    "Accuracy": 63.40
+                }
+            },
+            "text-davinci-003": {
+                "five-shot": {
+                    "EM": 56.90
+                }
+            },
+            "text-davinci-002": {
+                "five-shot": {
+                    "EM": 56.80
+                }
+            },
+            "Anthropic-LM-v4-s3-52B": {
+                "five-shot": {
+                    "EM": 48.10
+                }
+            },
+            "TNLG-v2-530B": {
+                "five-shot": {
+                    "EM": 46.90
+                }
+            },
+            "Cohere-Command-beta-52.4B": {
+                "five-shot": {
+                    "EM": 45.20
+                }
+            }
+        }
+    },
+    "NaturalQuestions": {
+        "size": 7842,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "EM": 14.6
+                },
+                "one-shot": {
+                    "EM": 23.0
+                },
+                "64-shot": {
+                    "EM": 29.9
+                }
+            },
+            "Gopher-280B": {
+                "zero-shot": {
+                    "EM": 10.1
+                },
+                "five-shot": {
+                    "EM": 24.5
+                },
+                "64-shot": {
+                    "EM": 28.2
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "EM": 16.6
+                },
+                "five-shot": {
+                    "EM": 31.5
+                },
+                "64-shot": {
+                    "EM": 35.5
+                }
+            },
+            "PaLM-8B": {
+                "zero-shot": {
+                    "EM": 8.4
+                },
+                "one-shot": {
+                    "EM": 10.6
+                },
+                "64-shot": {
+                    "EM": 14.6
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "EM": 18.1
+                },
+                "one-shot": {
+                    "EM": 26.5
+                },
+                "64-shot": {
+                    "EM": 27.6
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "EM": 21.2
+                },
+                "one-shot": {
+                    "EM": 29.3
+                },
+                "64-shot": {
+                    "EM": 39.6
+                }
+            },
+            "LLAMA-7B": {
+                "zero-shot": {
+                    "EM": 16.8
+                },
+                "one-shot": {
+                    "EM": 18.7
+                },
+                "five-shot": {
+                    "EM": 22.0
+                },
+                "64-shot": {
+                    "EM": 26.1
+                }
+            },
+            "LLAMA-13B": {
+                "zero-shot": {
+                    "EM": 20.1
+                },
+                "one-shot": {
+                    "EM": 23.4
+                },
+                "five-shot": {
+                    "EM": 28.1
+                },
+                "64-shot": {
+                    "EM": 31.9
+                }
+            },
+            "LLAMA-33B": {
+                "zero-shot": {
+                    "EM": 24.9
+                },
+                "one-shot": {
+                    "EM": 28.3
+                },
+                "five-shot": {
+                    "EM": 32.9
+                },
+                "64-shot": {
+                    "EM": 36.0
+                }
+            },
+            "LLAMA-65B": {
+                "zero-shot": {
+                    "EM": 23.8
+                },
+                "one-shot": {
+                    "EM": 31.0
+                },
+                "five-shot": {
+                    "EM": 35.0
+                },
+                "64-shot": {
+                    "EM": 39.9
+                }
+            }
+        }
+    },
+    "OBQA": {
+        "size": 500,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 57.6
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 50.4
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 53.4
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 57.2
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 56.4
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 58.6
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 60.2
+                }
+            }
+        }
+    },
+    "piqa": {
+        "size": 1838,
+        "data_category": "dev",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 81.0
+                }
+            },
+            "Gopher-280B": {
+                "zero-shot": {
+                    "Accuracy": 81.8
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "Accuracy": 81.8
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 80.5
+                }
+            },
+            "PaLM-cont-62B": {
+                "zero-shot": {
+                    "Accuracy": 81.4
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 82.3
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 79.8
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 80.1
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 82.3
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 82.8
+                }
+            }
+        }
+    },
+    "PTB": {
+        "size": 3761,
+        "data_category": "test",
+        "models": {
+            "GPT3": {
+                "zero-shot": {
+                    "Perplexity": 20.50
+                }
+            }
+        }
+    },
+    "race_middle": {
+        "size": 1436,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 58.4
+                }
+            },
+            "PaLM-8B": {
+                "zero-shot": {
+                    "Accuracy": 57.9
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 64.3
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 68.1
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 61.1
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 61.6
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 64.1
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 67.9
+                }
+            }
+        }
+    },
+    "race_high": {
+        "size": 3498,
+        "data_category": "test",
+        "models": {
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 45.5
+                }
+            },
+            "PaLM-8B": {
+                "zero-shot": {
+                    "Accuracy": 42.3
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 47.5
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 49.1
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 46.9
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 47.2
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 48.3
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 51.6
+                }
+            }
+        }
+    },
+    "RealToxicityPrompts": {
+        "size": 99442,
+        "data_category": "neither",
+        "models": {
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Toxicity": 10.6
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Toxicity": 10.4
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Toxicity": 10.7
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Toxicity": 12.8
+                }
+            }
+        }
+    },
+    "RTE": {
+        "size": 277,
+        "data_category": "dev",
+        "models": {
+            "InstructGPT-XL": {
+                "zero-shot": {
+                    "Accuracy": 53.8
+                },
+                "few-shot": {
+                    "Accuracy": 54.5
+                }
+            },
+            "InstructGPT-6B": {
+                "zero-shot": {
+                    "Accuracy": 65.7
+                },
+                "few-shot": {
+                    "Accuracy": 69.7
+                }
+            },
+            "InstructGPT-175B": {
+                "zero-shot": {
+                    "Accuracy": 66.8
+                },
+                "few-shot": {
+                    "Accuracy": 76.5
+                }
+            },
+            "T5+LM": {
+                "zero-shot": {
+                    "Accuracy": 53.03
+                }
+            },
+            "T0(p=1)": {
+                "zero-shot": {
+                    "Accuracy": 76.43
+                }
+            },
+            "T0(p=5.7)": {
+                "zero-shot": {
+                    "Accuracy": 75.67
+                }
+            },
+            "T0-3B": {
+                "zero-shot": {
+                    "Accuracy": 64.55
+                }
+            },
+            "T0": {
+                "zero-shot": {
+                    "Accuracy": 80.83
+                }
+            },
+            "T0+": {
+                "zero-shot": {
+                    "Accuracy": 67.47
+                }
+            },
+            "T0++": {
+                "zero-shot": {
+                    "Accuracy": 85.31
+                }
+            },
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 56.0
+                },
+                "one-shot": {
+                    "Accuracy": 49.5
+                },
+                "few-shot": {
+                    "Accuracy": 50.9
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 46.6
+                },
+                "one-shot": {
+                    "Accuracy": 54.9
+                },
+                "few-shot": {
+                    "Accuracy": 56.3
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 55.2
+                },
+                "one-shot": {
+                    "Accuracy": 54.9
+                },
+                "few-shot": {
+                    "Accuracy": 49.5
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 62.8
+                },
+                "one-shot": {
+                    "Accuracy": 56.3
+                },
+                "few-shot": {
+                    "Accuracy": 60.6
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 63.5
+                },
+                "one-shot": {
+                    "Accuracy": 70.4
+                },
+                "few-shot": {
+                    "Accuracy": 72.9
+                }
+            }
+        }
+    },
+    "SAT_Analogies": {
+        "size": 374,
+        "data_category": "neither",
+        "models": {
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 44.1
+                },
+                "one-shot": {
+                    "Accuracy": 46.5
+                },
+                "few-shot": {
+                    "Accuracy": 40.6
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 50.0
+                },
+                "one-shot": {
+                    "Accuracy": 55.1
+                },
+                "few-shot": {
+                    "Accuracy": 48.4
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 49.2
+                },
+                "one-shot": {
+                    "Accuracy": 54.3
+                },
+                "few-shot": {
+                    "Accuracy": 51.9
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 52.7
+                },
+                "one-shot": {
+                    "Accuracy": 53.5
+                },
+                "few-shot": {
+                    "Accuracy": 53.5
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 53.7
+                },
+                "one-shot": {
+                    "Accuracy": 59.1
+                },
+                "few-shot": {
+                    "Accuracy": 65.2
+                }
+            }
+        }
+    },
+    "SQuAD2": {
+        "size": 11873,
+        "data_category": "dev",
+        "models": {
+            "GPT3-XL": {
+                "zero-shot": {
+                    "EM": 43.1,
+                    "F1": 50.3
+                },
+                "one-shot": {
+                    "EM": 47.9,
+                    "F1": 54.0
+                },
+                "few-shot": {
+                    "EM": 53.5,
+                    "F1": 58.7
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "EM": 43.6,
+                    "F1": 51.0
+                },
+                "one-shot": {
+                    "EM": 47.9,
+                    "F1": 54.1
+                },
+                "few-shot": {
+                    "EM": 50.0,
+                    "F1": 55.9
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "EM": 45.4,
+                    "F1": 52.7
+                },
+                "one-shot": {
+                    "EM": 51.1,
+                    "F1": 57.1
+                },
+                "few-shot": {
+                    "EM": 56.6,
+                    "F1": 62.1
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "EM": 49.0,
+                    "F1": 56.3
+                },
+                "one-shot": {
+                    "EM": 56.0,
+                    "F1": 61.8
+                },
+                "few-shot": {
+                    "EM": 62.6,
+                    "F1": 67.7
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "EM": 52.6,
+                    "F1": 59.5
+                },
+                "one-shot": {
+                    "EM": 60.1,
+                    "F1": 65.4
+                },
+                "few-shot": {
+                    "EM": 64.9,
+                    "F1": 69.8
+                }
+            },
+            "InstructGPT-XL": {
+                "zero-shot": {
+                    "F1": 45.46
+                },
+                "few-shot": {
+                    "F1": 58.33
+                }
+            },
+            "InstructGPT-6B": {
+                "zero-shot": {
+                    "F1": 47.23
+                },
+                "few-shot": {
+                    "F1": 63.78
+                }
+            },
+            "InstructGPT-175B": {
+                "zero-shot": {
+                    "F1": 59.85
+                },
+                "few-shot": {
+                    "F1": 69.93
+                }
+            },
+            "GLM-base": {
+                "fine-tune": {
+                    "EM": 74.7,
+                    "F1": 77.8
+                }
+            },
+            "GLM-large": {
+                "zero-shot": {
+                    "EM": 80.3,
+                    "F1": 83.3
+                }
+            }
+        }
+    },
+    "super_glue_copa": {
+        "size": 100,
+        "data_category": "test",
+        "models": {
+            "GLM-515M": {
+                "fine-tune": {
+                    "Accuracy": 85.0
+                }
+            },
+            "GLM-RoBERTa": {
+                "fine-tune": {
+                    "Accuracy": 82.0
+                }
+            },
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 77.0
+                },
+                "one-shot": {
+                    "Accuracy": 74.0
+                },
+                "few-shot": {
+                    "Accuracy": 77.0
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 76.0
+                },
+                "one-shot": {
+                    "Accuracy": 76.0
+                },
+                "few-shot": {
+                    "Accuracy": 83.0
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 80.0
+                },
+                "one-shot": {
+                    "Accuracy": 82.0
+                },
+                "few-shot": {
+                    "Accuracy": 83.0
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 84.0
+                },
+                "one-shot": {
+                    "Accuracy": 86.0
+                },
+                "few-shot": {
+                    "Accuracy": 86.0
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 91.0
+                },
+                "one-shot": {
+                    "Accuracy": 87.0
+                },
+                "few-shot": {
+                    "Accuracy": 92.0
+                }
+            },
+            "T5+LM": {
+                "zero-shot": {
+                    "Accuracy": 54.88
+                }
+            },
+            "T0(p=1)": {
+                "zero-shot": {
+                    "Accuracy": 87.66
+                }
+            },
+            "T0(p=5.7)": {
+                "zero-shot": {
+                    "Accuracy": 90.85
+                }
+            },
+            "T0-3B": {
+                "zero-shot": {
+                    "Accuracy": 72.40
+                }
+            },
+            "T0": {
+                "zero-shot": {
+                    "Accuracy": 90.02
+                }
+            },
+            "T0+": {
+                "non-zero-shot": {
+                    "Accuracy": 92.24
+                }
+            }
+        }
+    },
+    "TriviaQA": {
+        "size": 359,
+        "data_category": "neither",
+        "models": {
+            "Gopher-280B": {
+                "zero-shot": {
+                    "EM": 43.5
+                },
+                "five-shot": {
+                    "EM": 57.0
+                },
+                "64-shot": {
+                    "EM": 57.2
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "EM": 55.4
+                },
+                "five-shot": {
+                    "EM": 64.1
+                },
+                "64-shot": {
+                    "EM": 64.6
+                }
+            },
+            "LLAMA-7B": {
+                "zero-shot": {
+                    "EM": 50.0
+                },
+                "one-shot": {
+                    "EM": 53.4
+                },
+                "five-shot": {
+                    "EM": 56.3
+                },
+                "64-shot": {
+                    "EM": 57.6
+                }
+            },
+            "LLAMA-13B": {
+                "zero-shot": {
+                    "EM": 56.6
+                },
+                "one-shot": {
+                    "EM": 60.5
+                },
+                "five-shot": {
+                    "EM": 63.1
+                },
+                "64-shot": {
+                    "EM": 64.0
+                }
+            },
+            "LLAMA-33B": {
+                "zero-shot": {
+                    "EM": 65.1
+                },
+                "one-shot": {
+                    "EM": 67.9
+                },
+                "five-shot": {
+                    "EM": 69.9
+                },
+                "64-shot": {
+                    "EM": 70.4
+                }
+            },
+            "LLAMA-65B": {
+                "zero-shot": {
+                    "EM": 68.2
+                },
+                "one-shot": {
+                    "EM": 71.6
+                },
+                "five-shot": {
+                    "EM": 72.6
+                },
+                "64-shot": {
+                    "EM": 73.0
+                }
+            },
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 19.7
+                },
+                "one-shot": {
+                    "Accuracy": 26.5
+                },
+                "few-shot": {
+                    "Accuracy": 32.1
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 31.3
+                },
+                "one-shot": {
+                    "Accuracy": 35.9
+                },
+                "few-shot": {
+                    "Accuracy": 42.3
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 38.7
+                },
+                "one-shot": {
+                    "Accuracy": 44.4
+                },
+                "few-shot": {
+                    "Accuracy": 51.6
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 41.8
+                },
+                "one-shot": {
+                    "Accuracy": 51.3
+                },
+                "few-shot": {
+                    "Accuracy": 57.5
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 64.3
+                },
+                "one-shot": {
+                    "Accuracy": 68.0
+                },
+                "few-shot": {
+                    "Accuracy": 71.2
+                }
+            }
+        }
+    },
+    "Truthful_QA": {
+        "size": 817,
+        "data_category": "neither",
+        "models": {
+            "GPT3-1.3B": {
+                "6-shot": {
+                    "Truthful": 31,
+                    "Truthful*Inf": 19
+                }
+            },
+            "GPT3-6B": {
+                "6-shot": {
+                    "Truthful": 22,
+                    "Truthful*Inf": 19
+                }
+            },
+            "GPT3-175B": {
+                "6-shot": {
+                    "Truthful": 28,
+                    "Truthful*Inf": 25
+                }
+            },
+            "LLaMA-7B": {
+                "6-shot": {
+                    "Truthful": 33,
+                    "Truthful*Inf": 29
+                }
+            },
+            "LLaMA-13B": {
+                "6-shot": {
+                    "Truthful": 47,
+                    "Truthful*Inf": 41
+                }
+            },
+            "LLaMA-33B": {
+                "6-shot": {
+                    "Truthful": 52,
+                    "Truthful*Inf": 48
+                }
+            },
+            "LLaMA-65B": {
+                "6-shot": {
+                    "Truthful": 57,
+                    "Truthful*Inf": 53
+                }
+            },
+            "InstructGPT-XL": {
+                "QA+instruct-6-shot": {
+                    "Truthful": 32.2,
+                    "Truthful*Inf": 24.2
+                }
+            },
+            "InstructGPT-6B": {
+                "QA+instruct-6-shot": {
+                    "Truthful": 49.4,
+                    "Truthful*Inf": 39.9
+                }
+            },
+            "InstructGPT-175B": {
+                "QA+instruct-6-shot": {
+                    "Truthful": 61.0,
+                    "Truthful*Inf": 31.5
+                }
+            },
+            "text-davinci-002": {
+                "five-shot": {
+                    "EM": 61.0,
+                    "CalibrationError": 19.9
+                }
+            },
+            "text-davinci-003": {
+                "five-shot": {
+                    "EM": 59.3,
+                    "CalibrationError": 34.8
+                }
+            },
+            "J1-Grande-v2-beta-17B": {
+                "five-shot": {
+                    "EM": 30.6,
+                    "CalibrationError": 12.3
+                }
+            },
+            "Cohere-Command-beta-52.4B": {
+                "five-shot": {
+                    "EM": 26.9,
+                    "CalibrationError": 31.1
+                }
+            }
+        }
+    },
+    "WikiLingua": {
+        "size": -1,
+        "data_category": "test",
+        "models": {
+            "PaLM-8B": {
+                "one-shot": {
+                    "BLEURT-20": 44.80
+                },
+                "fine-tune": {
+                    "BLEURT-20": 54.11
+                }
+            },
+            "PaLM-62B": {
+                "one-shot": {
+                    "BLEURT-20": 47.22
+                },
+                "fine-tune": {
+                    "BLEURT-20": 56.15
+                }
+            },
+            "PaLM-540B": {
+                "one-shot": {
+                    "BLEURT-20": 47.72
+                },
+                "fine-tune": {
+                    "BLEURT-20": 56.64
+                }
+            }
+        }
+    },
+    "WikiLingua (en->en)": {
+        "size": -1,
+        "data_category": "test",
+        "models": {
+            "LaMDA-137B": {
+                "one-shot": {
+                    "ROUGE-2": 5.4
+                }
+            },
+            "PaLM-8B": {
+                "one-shot": {
+                    "ROUGE-2": 5.6
+                },
+                "fine-tune": {
+                    "ROUGE-2": 19.3
+                }
+            },
+            "PaLM-62B": {
+                "one-shot": {
+                    "ROUGE-2": 8.9
+                },
+                "fine-tune": {
+                    "ROUGE-2": 22.1
+                }
+            },
+            "PaLM-540B": {
+                "one-shot": {
+                    "ROUGE-2": 9.9
+                },
+                "fine-tune": {
+                    "ROUGE-2": 23.2
+                }
+            }
+        }
+    },
+    "winogrande_xl": {
+        "size": 1267,
+        "data_category": "test",
+        "models": {
+            "T5+LM": {
+                "zero-shot": {
+                    "Accuracy": 50.65
+                }
+            },
+            "T0(p=1)": {
+                "zero-shot": {
+                    "Accuracy": 58.11
+                }
+            },
+            "T0(p=5.7)": {
+                "zero-shot": {
+                    "Accuracy": 59.35
+                }
+            },
+            "T0-3B": {
+                "zero-shot": {
+                    "Accuracy": 50.97
+                }
+            },
+            "T0": {
+                "zero-shot": {
+                    "Accuracy": 59.94
+                }
+            },
+            "T0+": {
+                "zero-shot": {
+                    "Accuracy": 62.54
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 70.2
+                }
+            },
+            "Gopher-280B": {
+                "zero-shot": {
+                    "Accuracy": 70.1
+                }
+            },
+            "Chinchilla-70B": {
+                "zero-shot": {
+                    "Accuracy": 74.9
+                }
+            },
+            "PaLM-62B": {
+                "zero-shot": {
+                    "Accuracy": 77.0
+                }
+            },
+            "PaLM-cont-62B": {
+                "zero-shot": {
+                    "Accuracy": 77.0
+                }
+            },
+            "PaLM-540B": {
+                "zero-shot": {
+                    "Accuracy": 81.1
+                }
+            },
+            "LLaMA-7B": {
+                "zero-shot": {
+                    "Accuracy": 70.1
+                }
+            },
+            "LLaMA-13B": {
+                "zero-shot": {
+                    "Accuracy": 73.0
+                }
+            },
+            "LLaMA-33B": {
+                "zero-shot": {
+                    "Accuracy": 76.0
+                }
+            },
+            "LLaMA-65B": {
+                "zero-shot": {
+                    "Accuracy": 77.0
+                }
+            }
+        }
+    },
+    "WMT14": {
+        "size": 1500,
+        "data_category": "dev",
+        "models": {
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Accuracy": 3.13
+                },
+                "one-shot": {
+                    "Accuracy": 26.3
+                },
+                "few-shot": {
+                    "Accuracy": 31.1
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Accuracy": 20.6
+                },
+                "one-shot": {
+                    "Accuracy": 29.0
+                },
+                "few-shot": {
+                    "Accuracy": 33.7
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Accuracy": 15.1
+                },
+                "one-shot": {
+                    "Accuracy": 30.5
+                },
+                "few-shot": {
+                    "Accuracy": 34.9
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Accuracy": 21.8
+                },
+                "one-shot": {
+                    "Accuracy": 30.2
+                },
+                "few-shot": {
+                    "Accuracy": 36.6
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Accuracy": 21.2
+                },
+                "one-shot": {
+                    "Accuracy": 33.7
+                },
+                "few-shot": {
+                    "Accuracy": 39.2
+                }
+            }
+        }
+    },
+    "xsum": {
+        "size": 11334,
+        "data_category": "test",
+        "models": {
+            "BERTSumAbs": {
+                "fine-tuning": {
+                    "RG-1": 38.8,
+                    "RG-2": 16.3,
+                    "RG-L": 31.2
+                }
+            },
+            "UniLMv2-base": {
+                "fine-tuning": {
+                    "RG-1": 44.0,
+                    "RG-2": 21.1,
+                    "RG-L": 36.1
+                }
+            },
+            "T5-large": {
+                "fine-tuning": {
+                    "RG-1": 40.9,
+                    "RG-2": 17.3,
+                    "RG-L": 33.0
+                }
+            },
+            "BART-large": {
+                "fine-tuning": {
+                    "RG-1": 45.1,
+                    "RG-2": 22.3,
+                    "RG-L": 37.3
+                }
+            },
+            "GLM-RoBERTa": {
+                "fine-tuning": {
+                    "RG-1": 45.5,
+                    "RG-2": 23.5,
+                    "RG-L": 37.3
+                }
+            },
+            "TNLG-v2-530B": {
+                "five-shot": {
+                    "RG-2": 16.9
+                }
+            },
+            "OPT-175B": {
+                "five-shot": {
+                    "RG-2": 15.5
+                }
+            },
+            "Cohere-xlarge-v20221108 -52.4B": {
+                "five-shot": {
+                    "RG-2": 15.3
+                }
+            }
+        }
+    },
+    "zeroCLUE": {
+        "size": -1,
+        "data_category": "test",
+        "models": {
+            "Human": {
+                "32-shot": {
+                    "Score": 82.49
+                }
+            },
+            "FineTuning.B": {
+                "32-shot": {
+                    "Score": 39.35
+                }
+            },
+            "Zero-shot.G": {
+                "32-shot": {
+                    "Score": 43.36
+                }
+            },
+            "Zero-shot.R": {
+                "32-shot": {
+                    "Score": 44.61
+                }
+            },
+            "PET": {
+                "32-shot": {
+                    "Score": 57.36
+                }
+            },
+            "PtuningB": {
+                "32-shot": {
+                    "Score": 51.81
+                }
+            },
+            "PtuningGPT": {
+                "32-shot": {
+                    "Score": 46.44
+                }
+            },
+            "EFL": {
+                "32-shot": {
+                    "Score": 53.4
+                }
+            },
+            "LM-BFF": {
+                "32-shot": {
+                    "Score": 55.79
+                }
+            }
+        }
+    },
+    "fewCLUE": {
+        "size": -1,
+        "data_category": "test",
+        "models": {
+            "Majority": {
+                "32-shot": {
+                    "Score": 29.04
+                }
+            },
+            "Human": {
+                "32-shot": {
+                    "Score": 82.50
+                }
+            },
+            "FineTuning.R": {
+                "32-shot": {
+                    "Score": 44.10
+                }
+            },
+            "Zero-shot.R": {
+                "32-shot": {
+                    "Score": 44.60
+                }
+            },
+            "Zero-shot.G": {
+                "32-shot": {
+                    "Score": 43.40
+                }
+            },
+            "PET": {
+                "32-shot": {
+                    "Score": 57.44
+                }
+            },
+            "LM-BFF": {
+                "32-shot": {
+                    "Score": 56.32
+                }
+            },
+            "PtuningR": {
+                "32-shot": {
+                    "Score": 59.91
+                }
+            },
+            "EFL": {
+                "32-shot": {
+                    "Score": 55.91
+                }
+            },
+            "FineTuning-Ernie1": {
+                "32-shot": {
+                    "Score": 48.34
+                }
+            },
+            "PET-Ernie1": {
+                "32-shot": {
+                    "Score": 56.39
+                }
+            },
+            "Ptuning-Ernie1": {
+                "32-shot": {
+                    "Score": 54.37
+                }
+            },
+            "EFL-Ernie1": {
+                "32-shot": {
+                    "Score": 52.27
+                }
+            }
+        }
+    },
+    "SuperGLUE": {
+        "size": -1,
+        "data_category": "dev",
+        "models": {
+            "Ernie3": {
+                "NA": {
+                    "Score": 90.6
+                }
+            },
+            "GPT3-XL": {
+                "zero-shot": {
+                    "Score": 49.6
+                },
+                "one-shot": {
+                    "Score": 57.8
+                },
+                "few-shot": {
+                    "Score": 60.0
+                }
+            },
+            "GPT3-2.7B": {
+                "zero-shot": {
+                    "Score": 50.1
+                },
+                "one-shot": {
+                    "Score": 61.2
+                },
+                "few-shot": {
+                    "Score": 64.3
+                }
+            },
+            "GPT3-6.7B": {
+                "zero-shot": {
+                    "Score": 52.3
+                },
+                "one-shot": {
+                    "Score": 59.7
+                },
+                "few-shot": {
+                    "Score": 63.6
+                }
+            },
+            "GPT3-13B": {
+                "zero-shot": {
+                    "Score": 54.4
+                },
+                "one-shot": {
+                    "Score": 64.3
+                },
+                "few-shot": {
+                    "Score": 66.9
+                }
+            },
+            "GPT3-175B": {
+                "zero-shot": {
+                    "Score": 58.2
+                },
+                "one-shot": {
+                    "Score": 68.9
+                },
+                "few-shot": {
+                    "Score": 73.2
+                }
+            }
+        }
+    },
+    "LCSTS": {
+        "size": 8685,
+        "data_category": "dev",
+        "models": {
+            "RoBERTa-large": {
+                "fine-tune": {
+                    "RG-L": 40.98
+                }
+            },
+            "Ernie2-large": {
+                "fine-tune": {
+                    "RG-L": 41.38
+                }
+            },
+            "ProphetNet-zh": {
+                "fine-tune": {
+                    "RG-L": 37.08
+                }
+            },
+            "mT5": {
+                "fine-tune": {
+                    "RG-L": 34.8
+                }
+            },
+            "CPM-2": {
+                "fine-tune": {
+                    "RG-L": 35.88
+                }
+            },
+            "Ernie3": {
+                "fine-tune": {
+                    "RG-L": 48.46
+                }
+            }
+        }
+    },
+    "Math23K": {
+        "size": 1000,
+        "data_category": "dev",
+        "models": {
+            "mT5": {
+                "fine-tune": {
+                    "Accuracy": 61.60
+                }
+            },
+            "CPM-2": {
+                "fine-tune": {
+                    "Accuracy": 69.37
+                }
+            },
+            "Ernie3": {
+                "fine-tune": {
+                    "Accuracy": 75.00
+                }
+            }
+        }
+    },
+    "KdConv": {
+        "size": 450,
+        "data_category": "test",
+        "models": {
+            "RoBERTa-large": {
+                "fine-tune": {
+                    "BLEU-4": 15.75
+                }
+            },
+            "Ernie2-large": {
+                "fine-tune": {
+                    "BLEU-4": 13.94
+                }
+            },
+            "Ernie3": {
+                "fine-tune": {
+                    "BLEU-4": 23.85
+                }
+            }
+        }
+    },
+    "DuReader_robust_qg": {
+        "size": 1417,
+        "data_category": "test",
+        "models": {
+            "RoBERTa-large": {
+                "fine-tune": {
+                    "BLEU-4": 37.10
+                }
+            },
+            "Ernie2-large": {
+                "fine-tune": {
+                    "BLEU-4": 39.30
+                }
+            },
+            "Ernie3": {
+                "fine-tune": {
+                    "BLEU-4": 41.70
+                }
+            }
+        }
+    },
+    "WMT20": {
+        "size": 1997,
+        "data_category": "dev",
+        "models": {
+            "mT5": {
+                "fine-tune": {
+                    "BLEU": 23.98
+                }
+            },
+            "CPM-2": {
+                "fine-tune": {
+                    "BLEU": 26.21
+                }
+            },
+            "Ernie3": {
+                "fine-tune": {
+                    "BLEU": 26.80
+                }
+            }
+        }
+    }
+}

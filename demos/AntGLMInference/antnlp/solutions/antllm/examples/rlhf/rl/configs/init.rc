@@ -1,0 +1,34 @@
+
+set -x
+
+pip list
+
+# 挂载nas
+mkdir -p /mnt
+mount -t nfs -o vers=3,nolock,proto=tcp nas:/ /mnt
+ls /mnt
+
+pwd
+
+# 为了避免修改用户的代码，这里复制一份代码到SRC_DIR下
+CUR_DIR=antllm
+SRC_DIR=solutions/
+mkdir -p ${SRC_DIR}
+cp -r ${CUR_DIR} ${SRC_DIR}
+cp -r alps_post_init.rc-* ${SRC_DIR}
+cp -r alps_post_init.rc-* ${SRC_DIR}/antllm/examples/rlhf/rl
+
+export PYTHONPATH=$PYTHONPATH:"`pwd`/"
+
+cp -r ${CUR_DIR}/examples/rlhf/rl/configs ${SRC_DIR}
+
+ls ${SRC_DIR}
+cd ${SRC_DIR}
+
+# cd ${SRC_DIR}/antllm/examples/rlhf/rl/
+
+pip install -U http://alps-common.oss-cn-hangzhou-zmf.aliyuncs.com/alps/maofagui.mfg/alps-2.3.0.6_submit.tar.gz --force-reinstall --no-deps
+
+python -c "import torch; print(torch.cuda.is_available())"
+
+# sleep 10000

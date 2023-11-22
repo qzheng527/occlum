@@ -1,0 +1,81 @@
+# 观察者
+watchers: ["peng.x", "zhongyi.lzy", "jing.zheng" ,"zujie.wzj", "yingzi.zk", "zhiyong.wang"]
+# 新建目录的reviewer
+reviewers: ["peng.x", "zhongyi.lzy", "jing.zheng", "zujie.wzj", "yingzi.zk", "zhiyong.wang", "jianiu.lj", "harvey.xt", "wangshu.zws", "xiaohao.wzh", "lijg.zero", "junping.zjp", "zhonggong.hc", "zhaohailin.zhl", "tianxuan.jl", "kunlong.ckl", "xukuan.xk"]
+# 阈值，配置的评审人中间，至少有1人通过
+threshold: 1
+
+
+# filter glob语法表达式
+filters:
+  # antllm为核心代码，包括模型、dataset等，入库代码需严格审核
+  "antllm/api/**":
+    reviewers: ["jianiu.lj", "yize.tyz", "jiangpeijie.jpj", "zhaohailin.zhl", "wangzixiao.wzx", "wei.xiew", "evan.zx", "chenmian.cm", "ruifang.crf"]
+  "antllm/nn/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "antllm/utils/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "antllm/models/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "antllm/inference":
+    reviewers: ["tianxuan.jl", "xinyu.kxy"]
+  "antllm/evaluation":
+    reviewers: ["tianxuan.jl", "xinyu.kxy", "zheng.gao"]
+  "antllm/auto_evaluation":
+    reviewers: ["tianxuan.jl", "xinyu.kxy", "ytt360131", "chengzhao.wq"]
+  "antllm/training":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "antllm/data":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "antllm/arguments":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  # datachain 目录包含数据处理、数据清洗等代码
+  "datachain/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "quanxian.wg", "jianqiang.ljq", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "evan.zx", "dingnan.jdn", "chumingyuan.cmy", "tujuanhui.tjh"]
+  # 包括glm预训练任务代码，由拓扑、笠平review
+  "tasks/glm/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "xukuan.xk", "yize.tyz"]
+  # 包括gpt预训练任务代码，由盛鸿、承朝、旷之review
+  "tasks/gpt/**":
+    reviewers: ["zhaohailin.zhl", "chengzhao.wq", "xinyu.kxy", "xukuan.xk", "yize.tyz"]
+  # 包括代码预训练任务代码，由接羽、比奥review
+  "tasks/codex/**":
+    reviewers: ["lijg.zero", "biao.lzw"]
+  # 包括instruct tuning训练任务代码，由天选、筱豪、春霖review
+  "tasks/sft/**":
+    reviewers: ["tianxuan.jl", "xiaohao.wzh", "hs272483", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz"]
+  # 包括RLHF训练任务代码，由筱豪、春霖、兮尔review
+  "tasks/rlhf/**":
+    reviewers: ["xiaohao.wzh", "hs272483", "xier.zl", "tangjian.dtj", "xukuan.xk", "yize.tyz"]
+  # 包括glm配置文件，reviewers同上
+  "config/glm/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "xukuan.xk", "yize.tyz"]
+  # 包括gpt配置文件，reviewers同上
+  "config/gpt/**":
+    reviewers: ["zhaohailin.zhl", "chengzhao.wq", "xinyu.kxy", "xukuan.xk", "yize.tyz"]
+  # 包括代码预训练配置文件，reviewers同上
+  "config/codex/**":
+    reviewers: ["lijg.zero", "biao.lzw"]
+  # 包括instruct tuning训练配置文件，reviewers同上
+  "config/sft/**":
+    reviewers: ["tianxuan.jl", "xiaohao.wzh", "hs272483", "zhaohailin.zhl", "xinyu.kxy", "xukuan.xk", "yize.tyz"]
+  # 包括RLHF训练配置文件，reviewers同上
+  "config/rlhf/**":
+    reviewers: ["xiaohao.wzh", "hs272483", "xier.zl", "xukuan.xk", "yize.tyz"]
+  # 评价相关代码，人选未定，确定以后修改
+  "evaluate/**":
+    reviewers: ["tianxuan.jl", "hs272483", "zhaohailin.zhl", "daniel.ljh", "xinyu.kxy", "xukuan.xk", "yize.tyz"]
+  # demo相关代码，由旷之、莫残review
+  "demo/**":
+    reviewers: ["xinyu.kxy", "minghui.ymh", "xukuan.xk", "yize.tyz"]
+  # 工具类代码
+  "utils/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xukuan.xk", "yize.tyz"]
+  # 示例代码
+  "examples/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "tangjian.dtj", "hs272483"]
+  "examples/sft": 
+    reviewers: ["tianxuan.jl", "xinyu.kxy"]
+  # 测试代码
+  "tests/**":
+    reviewers: ["kunlong.ckl", "liping.xj", "lijg.zero", "biao.lzw", "tianxuan.jl", "zhaohailin.zhl", "xukuan.xk", "yize.tyz", "xiaohao.wzh", "ruifang.crf", "jianiu.lj"]
