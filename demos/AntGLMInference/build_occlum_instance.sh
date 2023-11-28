@@ -12,18 +12,19 @@ function build_instance()
 {
     rm -rf occlum_instance && occlum new occlum_instance
     pushd occlum_instance
+    mkdir results
     rm -rf image
     copy_bom -f ../antglm.yaml --root image --include-dir /opt/occlum/etc/template
     mkdir -p image/antglm/antnlp/solutions
     cp -rf ../antnlp/solutions/antllm image/antglm/antnlp/solutions/
 
-    new_json="$(jq '.resource_limits.user_space_size = "75GB" |
+    new_json="$(jq '.resource_limits.user_space_size = "120GB" |
                     .resource_limits.kernel_space_heap_size = "1GB" |
                     .resource_limits.max_num_of_threads = 500 |
                     .env.default += ["PYTHONHOME=/opt/python-occlum"] |
                     .env.default += ["PATH=/bin"] |
                     .env.default += ["HOME=/root"] |
-                    .env.untrusted += ["OMP_NUM_THREADS"]' Occlum.json)" && \
+                    .env.untrusted += ["MALLOC_ARENA_MAX", "OMP_NUM_THREADS"]' Occlum.json)" && \
     echo "${new_json}" > Occlum.json
 
     # Make model as hostfs mount for test purpose

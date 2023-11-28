@@ -18,6 +18,14 @@ targets:
     copy:
       - files:
           - ../antglm_evaluator.py
+          - ../get_score.py
+          - ../model_exec_fineva_main.py
+      - dirs:
+          - ../utils
+  - target: /
+    copy:
+      - files:
+          - ../datasets/
   - target: /opt/occlum/glibc/lib
     copy:
       - files:
