@@ -197,7 +197,7 @@ macro_rules! process_syscall_table_with_callback {
             (Getrlimit = 97) => do_gettrlimit(resource: u32, rlim: *mut rlimit_t),
             (Getrusage = 98) => handle_unsupported(),
             (SysInfo = 99) => do_sysinfo(info: *mut sysinfo_t),
-            (Times = 100) => handle_unsupported(),
+            (Times = 100) => do_times(buf: *mut tms_t),
             (Ptrace = 101) => handle_unsupported(),
             (Getuid = 102) => do_getuid(),
             (SysLog = 103) => handle_unsupported(),
@@ -1029,6 +1029,20 @@ fn do_prlimit(
         }
     };
     misc::do_prlimit(pid, resource, new_limit, old_limit).map(|_| 0)
+}
+
+#[repr(C)]
+#[allow(non_camel_case_types)]
+pub struct tms_t {
+    tms_utime: i64,
+    tms_stime: i64,
+    tms_cutime: i64,
+    tms_cstime: i64,
+}
+
+fn do_times(buf: *mut tms_t) -> Result<isize> {
+    warn!("No real operation in LibOS, just return success.");
+    Ok(0)
 }
 
 fn handle_unsupported() -> Result<isize> {
