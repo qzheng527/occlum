@@ -25,7 +25,7 @@ occlum exec /bin/${MYSQL} -e "SELECT User, Host, plugin FROM mysql.user"
 echo -e "${GREEN}Run mysql client on host${NC}"
 
 # Use TCP/IP
-/usr/local/mysql/bin/${MYSQLSHOW} -h 127.0.0.1 -P 3306
+/usr/bin/${MYSQLSHOW} -h 127.0.0.1 -P 3306
 
 occlum stop
 

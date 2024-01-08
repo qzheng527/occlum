@@ -2,18 +2,10 @@
 
 [`MySQL`](https://www.mysql.com/) is a widely used open-source relational database management system (RDBMS).
 
-### Preinstall dependencies
-Related dependencies: libnuma-dev libboost-all-dev boost-1.77.0
+### Install MySQL 8
 ```
-./preinstall_deps.sh
+./install_mysql.sh
 ```
-
-### Download and build MySQL
-```
-./dl_and_build_mysql.sh
-```
-This command downloads MySQL-8.0.31 source code and builds from it.
-When completed, all MySQL related binaries and tools are installed.
 
 ### Run server and client
 

@@ -1069,7 +1069,7 @@ jobs:
         build-envs: 'OCCLUM_RELEASE_BUILD=1'
 
     - name: Preinstall dependencies and build mysql
-      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./preinstall_deps.sh && ./dl_and_build_mysql.sh"
+      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./install_mysql.sh"
 
     - name: Run mysql server
       run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./run_mysql_server.sh" &

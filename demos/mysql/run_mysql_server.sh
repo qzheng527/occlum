@@ -26,6 +26,9 @@ echo "${new_json}" > Occlum.json
 rm -rf image
 copy_bom -f $bomfile --root image --include-dir /opt/occlum/etc/template
 
+mkdir -p image/var/lib/mysql
+mkdir -p image/var/lib/mysql-files
+
 occlum build
 
 # 3. Run the program
