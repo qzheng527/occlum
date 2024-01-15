@@ -7,6 +7,7 @@ use crate::process::table::get_all_processes;
 
 use self::cpuinfo::CpuInfoINode;
 use self::meminfo::MemInfoINode;
+use self::mounts::MountsInfoNode;
 use self::pid::LockedPidDirINode;
 use self::proc_inode::{Dir, DirProcINode, File, ProcINode, SymLink};
 use self::self_::SelfSymINode;
@@ -14,6 +15,7 @@ use self::stat::StatINode;
 
 mod cpuinfo;
 mod meminfo;
+mod mounts;
 mod pid;
 mod proc_inode;
 mod self_;
@@ -107,6 +109,9 @@ impl LockedProcRootINode {
         let meminfo_inode = MemInfoINode::new();
         file.non_volatile_entries
             .insert(String::from("meminfo"), meminfo_inode);
+        let mounts_inode = MountsInfoNode::new();
+        file.non_volatile_entries
+            .insert(String::from("mounts"), mounts_inode);
         let self_inode = SelfSymINode::new();
         file.non_volatile_entries
             .insert(String::from("self"), self_inode);
