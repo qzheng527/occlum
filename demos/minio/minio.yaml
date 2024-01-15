@@ -1,0 +1,14 @@
+includes:
+  - base.yaml
+targets:
+  - target: /bin
+    copy:
+      - files:
+        - $GOBIN/minio
+        - /opt/occlum/toolchains/busybox/glibc/busybox
+  - target: /opt/occlum/glibc/lib
+    copy:
+      - files:
+          - /opt/occlum/glibc/lib/libnss_files.so.2
+          - /opt/occlum/glibc/lib/libnss_dns.so.2
+          - /opt/occlum/glibc/lib/libresolv.so.2
