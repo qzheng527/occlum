@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1706394762771,
+  "lastUpdate": 1706739942781,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -3864,6 +3864,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "Receiver Average Rate",
             "value": 2621,
+            "unit": "Mbits/sec",
+            "extra": "receiver"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Qi Zheng",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "volcano",
+            "username": "volcano0dr",
+            "email": "volcano.dr@hotmail.com"
+          },
+          "id": "19104ed3e74e382e85c4beac6a6cc0fc314b00ba",
+          "message": "[tests] Fix shm test build failure in alios",
+          "timestamp": "2023-11-08T06:45:17Z",
+          "url": "https://github.com/qzheng527/occlum/commit/19104ed3e74e382e85c4beac6a6cc0fc314b00ba"
+        },
+        "date": 1706739941759,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Sender Average Rate",
+            "value": 2568,
+            "unit": "Mbits/sec",
+            "extra": "sender"
+          },
+          {
+            "name": "Receiver Average Rate",
+            "value": 2568,
             "unit": "Mbits/sec",
             "extra": "receiver"
           }
