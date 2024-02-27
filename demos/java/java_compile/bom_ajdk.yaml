@@ -1,0 +1,15 @@
+includes: 
+  - base.yaml
+targets:
+  # busybox for debug purpose
+  # - target: /bin
+  #   copy:
+  #     - files:
+  #       - /opt/occlum/toolchains/busybox/glibc/busybox
+  - target: /opt/taobao
+    createlinks:
+      - src: ajdk_8.21.25
+        linkname: java
+    copy:
+      - dirs:
+        - /opt/taobao/install/ajdk_8.21.25
