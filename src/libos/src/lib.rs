@@ -78,8 +78,11 @@ use crate::process::pid_t;
 
 #[macro_use]
 mod prelude;
+
 #[macro_use]
-mod error;
+extern crate errno;
+
+use errno::Errno::*;
 
 mod config;
 mod entry;

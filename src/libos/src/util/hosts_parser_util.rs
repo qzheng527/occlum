@@ -22,7 +22,7 @@ pub struct Hosts {
 }
 
 impl FromStr for HostEntry {
-    type Err = error::Error;
+    type Err = errno::Error;
     fn from_str(line: &str) -> Result<Self> {
         let slice: Vec<&str> = line.split_whitespace().collect();
 

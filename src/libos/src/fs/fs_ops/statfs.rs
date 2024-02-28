@@ -76,7 +76,7 @@ impl Statfs {
 }
 
 impl TryFrom<FsInfo> for Statfs {
-    type Error = error::Error;
+    type Error = errno::Error;
 
     fn try_from(info: FsInfo) -> Result<Self> {
         let statfs = if info.magic == rcore_fs_unionfs::UNIONFS_MAGIC

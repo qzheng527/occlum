@@ -1,5 +1,5 @@
 use super::*;
-use crate::error::*;
+use crate::prelude::*;
 use rcore_fs::dev::{DevError, DevResult};
 use rcore_fs_sefs::dev::{File, SefsMac, Storage};
 use std::boxed::Box;
@@ -319,12 +319,5 @@ impl File for LockedFile {
     fn get_file_mac(&self) -> DevResult<SefsMac> {
         let file = self.0.lock().unwrap();
         Ok(SefsMac(file.get_mac().unwrap()))
-    }
-}
-
-impl From<Error> for DevError {
-    fn from(e: Error) -> Self {
-        error!("SGX protected file I/O error: {}", e.backtrace());
-        DevError(e.errno() as i32)
     }
 }

@@ -11,7 +11,7 @@ pub enum PrioWhich {
 }
 
 impl TryFrom<i32> for PrioWhich {
-    type Error = crate::error::Error;
+    type Error = crate::errno::Error;
 
     fn try_from(raw: i32) -> Result<Self> {
         if raw > Self::PRIO_USER as i32 || raw < Self::PRIO_PROCESS as i32 {
