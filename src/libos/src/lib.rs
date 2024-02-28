@@ -66,7 +66,11 @@ extern crate intrusive_collections;
 extern crate itertools;
 extern crate modular_bitfield;
 extern crate resolv_conf;
+extern crate vdso_time;
+#[macro_use]
+extern crate errno;
 
+use errno::Errno::*;
 use sgx_trts::libc;
 use sgx_types::*;
 use std::backtrace::{self, PrintFormat};
@@ -78,11 +82,6 @@ use crate::process::pid_t;
 
 #[macro_use]
 mod prelude;
-
-#[macro_use]
-extern crate errno;
-
-use errno::Errno::*;
 
 mod config;
 mod entry;

@@ -19,6 +19,7 @@ pub use errno::*;
 pub use crate::fs::{File, FileDesc, FileRef};
 pub use crate::process::{pid_t, uid_t};
 pub use crate::util::sync::RwLock;
+pub use vdso_time::ClockId;
 
 macro_rules! debug_trace {
     () => {
