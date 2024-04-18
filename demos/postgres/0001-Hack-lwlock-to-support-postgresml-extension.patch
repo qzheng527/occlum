@@ -1,0 +1,40 @@
+From 22f5ca3b4f83754616010d3828cf0e9102ebfbdd Mon Sep 17 00:00:00 2001
+From: Qi Zheng <huaiqing.zq@antgroup.com>
+Date: Thu, 18 Apr 2024 03:18:06 +0000
+Subject: [PATCH] Hack lwlock to support postgresml extension
+
+Signed-off-by: Qi Zheng <huaiqing.zq@antgroup.com>
+---
+ src/backend/storage/lmgr/lwlock.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/src/backend/storage/lmgr/lwlock.c b/src/backend/storage/lmgr/lwlock.c
+index ea34ee7..588ef3c 100644
+--- a/src/backend/storage/lmgr/lwlock.c
++++ b/src/backend/storage/lmgr/lwlock.c
+@@ -604,6 +604,11 @@ GetNamedLWLockTranche(const char *tranche_name)
+ 	 * in MainLWLockArray after fixed locks.
+ 	 */
+ 	lock_pos = NUM_FIXED_LWLOCKS;
++
++	if (NamedLWLockTrancheRequestArray == NULL) {
++		elog(DEBUG1, "NamedLWLockTrancheRequestArray is null, try create a new one");
++		RequestNamedLWLockTranche(tranche_name, 0);
++	}
+ 	for (i = 0; i < NamedLWLockTrancheRequests; i++)
+ 	{
+ 		if (strcmp(NamedLWLockTrancheRequestArray[i].tranche_name,
+@@ -698,8 +703,8 @@ RequestNamedLWLockTranche(const char *tranche_name, int num_lwlocks)
+ {
+ 	NamedLWLockTrancheRequest *request;
+ 
+-	if (!process_shmem_requests_in_progress)
+-		elog(FATAL, "cannot request additional LWLocks outside shmem_request_hook");
++//	if (!process_shmem_requests_in_progress)
++//		elog(FATAL, "cannot request additional LWLocks outside shmem_request_hook");
+ 
+ 	if (NamedLWLockTrancheRequestArray == NULL)
+ 	{
+-- 
+2.34.1
+

@@ -42,3 +42,4 @@ targets:
           - /usr/local/pgsql/lib/postgis_raster-3.so
           - /usr/local/pgsql/lib/citus.so
           - /usr/local/pgsql/lib/citus_columnar.so
+          - /usr/local/pgsql/lib/pgml.so

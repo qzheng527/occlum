@@ -12,7 +12,7 @@ Assumping users do all the build on Occlum Ubuntu 20.04 based development docker
 
 ```
 apt update
-apt install -y flex libgeos-dev libgdal-dev liblz4-dev python3-dev
+apt install -y flex libgeos-dev libgdal-dev liblz4-dev python3-dev libzstd-dev lld libopenblas-dev
 ```
 
 ## PostgreSQL modifications for Occlum

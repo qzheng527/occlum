@@ -11,14 +11,17 @@ copy_bom -f ../pg.yaml --root image --include-dir /opt/occlum/etc/template
 # Fix " version `XCRYPT_2.0' not found " issue
 cp /lib/x86_64-linux-gnu/libcrypt.so.1 image/opt/occlum/glibc/lib/
 
-new_json="$(jq '.resource_limits.user_space_size = "10000MB" |
-                .resource_limits.kernel_space_heap_size = "2000MB" |
-                .resource_limits.kernel_space_heap_max_size = "2000MB" |
+new_json="$(jq '.resource_limits.user_space_size = "15GB" |
+                .resource_limits.kernel_space_heap_size = "2GB" |
+                .resource_limits.kernel_space_heap_max_size = "2GB" |
                 .resource_limits.kernel_space_stack_size ="4MB" |
-                .resource_limits.max_num_of_threads = 192 |
+                .resource_limits.max_num_of_threads = 2048 |
                 .env.default = [ "PATH=/usr/local/pgsql/bin" ] |
                 .env.default += ["PYTHONHOME=/opt/python-occlum"] |
                 .env.default += [ "LD_LIBRARY_PATH=/usr/local/pgsql/lib" ] |
+                .env.default += [ "MALLOC_ARENA_MAX=128" ] |
+                .env.default += [ "OPENBLAS_NUM_THREADS=8" ] |
+                .env.untrusted += [ "MALLOC_ARENA_MAX", "OPENBLAS_NUM_THREADS" ] |
                 .entry_points += [ "/usr/local/pgsql/bin" ]' Occlum.json)" && \
 echo "${new_json}" > Occlum.json
 

@@ -8,6 +8,10 @@ pip_mirror="https://mirrors.aliyun.com/pypi/simple"
 [ -d miniconda ] || bash ./Miniconda3-latest-Linux-x86_64.sh -b -p $script_dir/miniconda
 
 # Create conda env
-$script_dir/miniconda/bin/conda create --prefix $script_dir/python-occlum -y python=3.8.10 \
-    gdal Pillow numpy shapely pyproj rasterio pandas pathlib numba pysftp
-$script_dir/python-occlum/bin/pip3 install geopandas==0.13.0 mercantile xyconvert -i $pip_mirror
+$script_dir/miniconda/bin/conda create \
+    --prefix $script_dir/python-occlum -y \
+    python=3.10.0
+
+# Install python packages
+$script_dir/python-occlum/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
+$script_dir/python-occlum/bin/pip3 install mercantile xyconvert xgboost scikit-learn lightgbm -i $pip_mirror
