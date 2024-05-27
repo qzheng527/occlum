@@ -1,0 +1,24 @@
+includes:
+  - base.yaml
+targets:
+  - target: /bin
+    copy:
+      - files:
+        - /opt/occlum/toolchains/bash/glibc/bash
+        - ../rag.sh
+  # python packages
+  - target: /opt
+    copy:
+      - dirs:
+          - ../python-occlum
+  # python code
+  - target: /
+    copy:
+      - dirs:
+          - ../Langchain-Chatchat-ipex-llm
+  - target: /opt/occlum/glibc/lib
+    copy:
+      - files:
+          - /opt/occlum/glibc/lib/libnss_files.so.2
+          - /opt/occlum/glibc/lib/libnss_dns.so.2
+          - /opt/occlum/glibc/lib/libresolv.so.2
