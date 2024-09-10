@@ -184,92 +184,105 @@
           }
 
           function renderGraph(parent, benchSets) {
-            const canvas = document.createElement('canvas');
-            canvas.className = 'benchmark-chart';
-            parent.appendChild(canvas);
-          
-            const datasets = [];
-            let index = 0;
-            for (const [benchName, benches] of benchSets.entries()) {
-              const color = generateColor(index);
-              datasets.push({
-                label: benchName,
-                data: benches.map(d => d.bench.value),
-                fill: false,
-                borderColor: color,
-                backgroundColor: color + '60', // Add alpha for #rrggbbaa
-              });
-              index++;
-            }
-          
-            const data = {
-              // Assuming all datasets has the same commit sequence
-              labels: benchSets.values().next().value.map(d => d.commit.id.slice(0, 7)),
-              datasets: datasets,
-            };
-          
-            const options = {
-              scales: {
-                xAxes: [
-                  {
-                    scaleLabel: {
-                      display: true,
-                      labelString: 'commit',
-                    },
-                  }
-                ],
-                yAxes: [
-                  {
-                    scaleLabel: {
-                      display: true,
-                      // Assuming all datasets has the same unit, take the last one
-                      labelString: benchSets.values().next().value.length > 0 ? benchSets.values().next().value[benchSets.values().next().value.length - 1].bench.unit : '',
-                    },
-                    ticks: {
-                      beginAtZero: true,
-                    }
-                  }
-                ],
-              },
-              tooltips: {
-                callbacks: {
-                  afterTitle: items => {
-                    const {index} = items[0];
-                    const data = dataset[index];
-                    return '\n' + data.commit.message + '\n\n' + data.commit.timestamp + ' committed by @' + data.commit.committer.username + '\n';
-                  },
-                  label: item => {
-                    let label = item.value;
-                    const { range, unit } = dataset[item.index].bench;
-                    label += ' ' + unit;
-                    if (range) {
-                      label += ' (' + range + ')';
-                    }
-                    return label;
-                  },
-                  afterLabel: item => {
-                    const { extra } = dataset[item.index].bench;
-                    return extra ? '\n' + extra : '';
-                  }
-                }
-              },
-              onClick: (_mouseEvent, activeElems) => {
-                if (activeElems.length === 0) {
-                  return;
-                }
-                const index = activeElems[0]._index;
-                const url = dataset[index].commit.url;
-                window.open(url, '_blank');
-              },
-            };
+  const canvas = document.createElement('canvas');
+  canvas.className = 'benchmark-chart';
+  parent.appendChild(canvas);
 
-            new Chart(canvas, {
-              type: 'line',
-              data,
-              options,
-            });
+  const datasets = [];
+  let index = 0;
 
+  // Find the longest commit sequence
+  const longestCommitSequence = Array.from(benchSets.values()).reduce((max, benches) => Math.max(max, benches.length), 0);
+
+  for (const [benchName, benches] of benchSets.entries()) {
+    const color = generateColor(index);
+    const data = new Array(longestCommitSequence).fill(null);
+    const offset = longestCommitSequence - benches.length;
+    benches.forEach((d, i) => {
+      data[offset + i] = d.bench.value; // Fill from the end
+    });
+
+    datasets.push({
+      label: benchName,
+      data: data,
+      fill: false,
+      borderColor: color,
+      backgroundColor: color + '60', // Add alpha for #rrggbbaa
+    });
+    index++;
+  }
+
+  const firstBenches = benchSets.values().next().value;
+  const commitSequence = firstBenches.map(d => d.commit.id.slice(0, 7));
+
+  const data = {
+    labels: commitSequence,
+    datasets: datasets,
+  };
+
+  console.log(data);
+
+  const options = {
+    scales: {
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: 'commit',
+          },
+        }
+      ],
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            // Assuming all datasets has the same unit, take the last one
+            labelString: firstBenches.length > 0 ? firstBenches[firstBenches.length - 1].bench.unit : '',
+          },
+          ticks: {
+            beginAtZero: true,
           }
+        }
+      ],
+    },
+    tooltips: {
+      callbacks: {
+        afterTitle: items => {
+          const { index } = items[0];
+          const data = dataset[index];
+          return '\n' + data.commit.message + '\n\n' + data.commit.timestamp + ' committed by @' + data.commit.committer.username + '\n';
+        },
+        label: item => {
+          let label = item.value;
+          const { range, unit } = dataset[item.index].bench;
+          label += ' ' + unit;
+          if (range) {
+            label += ' (' + range + ')';
+          }
+          return label;
+        },
+        afterLabel: item => {
+          const { extra } = dataset[item.index].bench;
+          return extra ? '\n' + extra : '';
+        }
+      }
+    },
+    onClick: (_mouseEvent, activeElems) => {
+      if (activeElems.length === 0) {
+        return;
+      }
+      const index = activeElems[0]._index;
+      const url = dataset[index].commit.url;
+      window.open(url, '_blank');
+    },
+  };
+
+  new Chart(canvas, {
+    type: 'line',
+    data,
+    options,
+  });
+}
 
           const main = document.getElementById('main');
           const graphsElem = document.createElement('div');
