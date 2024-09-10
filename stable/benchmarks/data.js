@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1725937360272,
+  "lastUpdate": 1725937730767,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -4138,6 +4138,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Thread 95th Percentile Latency",
             "value": 450.77,
+            "unit": "ms",
+            "extra": "per95"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "qzheng527",
+            "username": "qzheng527"
+          },
+          "committer": {
+            "name": "qzheng527",
+            "username": "qzheng527"
+          },
+          "id": "fbf035afb32fef68170f2c659c4942f056cc8f21",
+          "message": "[revert me] test",
+          "timestamp": "2024-09-10T02:14:59Z",
+          "url": "https://github.com/qzheng527/occlum/pull/14/commits/fbf035afb32fef68170f2c659c4942f056cc8f21"
+        },
+        "date": 1725937729912,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Threads Minimum latency",
+            "value": 0.57,
+            "unit": "ms",
+            "extra": "min"
+          },
+          {
+            "name": "Threads Average Latency",
+            "value": 82.25,
+            "unit": "ms",
+            "extra": "avg"
+          },
+          {
+            "name": "Threads Maximum Latency",
+            "value": 1915.09,
+            "unit": "ms",
+            "extra": "max"
+          },
+          {
+            "name": "Thread 95th Percentile Latency",
+            "value": 458.96,
             "unit": "ms",
             "extra": "per95"
           }
