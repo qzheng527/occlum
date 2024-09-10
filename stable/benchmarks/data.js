@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1725748710393,
+  "lastUpdate": 1725937360272,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -7066,6 +7066,50 @@ window.BENCHMARK_DATA = {
             "value": 2602,
             "unit": "Mbits/sec",
             "extra": "receiver"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "qzheng527",
+            "username": "qzheng527"
+          },
+          "committer": {
+            "name": "qzheng527",
+            "username": "qzheng527"
+          },
+          "id": "fbf035afb32fef68170f2c659c4942f056cc8f21",
+          "message": "[revert me] test",
+          "timestamp": "2024-09-10T02:14:59Z",
+          "url": "https://github.com/qzheng527/occlum/pull/14/commits/fbf035afb32fef68170f2c659c4942f056cc8f21"
+        },
+        "date": 1725937357270,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Sender Average Rate",
+            "value": 2626,
+            "unit": "Mbits/sec",
+            "extra": "sender"
+          },
+          {
+            "name": "Receiver Average Rate",
+            "value": 2626,
+            "unit": "Mbits/sec",
+            "extra": "receiver"
+          },
+          {
+            "name": "Sender Average Rate (IO_URING)",
+            "value": 4975,
+            "unit": "Mbits/sec",
+            "extra": "sender_iouring"
+          },
+          {
+            "name": "Receiver Average Rate (IO_URING)",
+            "value": 4975,
+            "unit": "Mbits/sec",
+            "extra": "receiver_iouring"
           }
         ]
       }
