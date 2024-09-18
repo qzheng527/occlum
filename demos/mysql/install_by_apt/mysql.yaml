@@ -1,0 +1,30 @@
+includes:
+  - base.yaml
+# mysql
+targets:
+  # copy bins
+  - target: /bin
+    copy:
+      - files:
+        # server tools
+        - /usr/sbin/mysqld
+        # client tools
+        - /usr/bin/mysql
+        - /usr/bin/mysqladmin
+        - /usr/bin/mysqlshow
+  - target: /etc
+    copy:
+      - files:
+        - ../my.cnf
+  - target: /etc
+    copy:
+      - files:
+        - /etc/localtime
+  - target: /opt/occlum/glibc/etc
+    copy:
+      - files:
+        - /etc/localtime
+  - target: /lib
+    copy:
+      - dirs:
+        - /usr/lib/mysql

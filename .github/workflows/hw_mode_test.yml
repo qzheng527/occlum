@@ -963,15 +963,15 @@ jobs:
         build-envs: 'OCCLUM_RELEASE_BUILD=1'
 
     - name: Preinstall dependencies and build mysql
-      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./preinstall_deps.sh && ./dl_and_build_mysql.sh"
+      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql/install_by_apt && ./install_mysql.sh"
 
     - name: Run mysql server
-      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./run_mysql_server.sh" &
+      run: docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql/install_by_apt && ./run_mysql_server.sh" &
 
     - name: Run mysql benchmarks
       run: |
         sleep 120;
-        docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql && ./run_benchmarks.sh"
+        docker exec ${{ env.CONTAINER_NAME }} bash -c "cd /root/occlum/demos/mysql/install_by_apt && ./run_benchmarks.sh"
 
     - name: Clean the environment
       if: ${{ always() }}
