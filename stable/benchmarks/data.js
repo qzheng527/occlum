@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726958013067,
+  "lastUpdate": 1727313201051,
   "repoUrl": "https://github.com/qzheng527/occlum",
   "entries": {
     "Sysbench Benchmark": [
@@ -4366,6 +4366,52 @@ window.BENCHMARK_DATA = {
           {
             "name": "Thread 95th Percentile Latency",
             "value": 458.96,
+            "unit": "ms",
+            "extra": "per95"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "committer": {
+            "name": "Zheng, Qi",
+            "username": "qzheng527",
+            "email": "huaiqing.zq@antgroup.com"
+          },
+          "id": "56429cd9cb153eee6d47522911ee65f6fd8a4e1b",
+          "message": "[ci] Enable io_uring test mode for benchmark ci",
+          "timestamp": "2024-09-10T01:58:43Z",
+          "url": "https://github.com/qzheng527/occlum/commit/56429cd9cb153eee6d47522911ee65f6fd8a4e1b"
+        },
+        "date": 1727313199415,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Threads Minimum latency",
+            "value": 0.56,
+            "unit": "ms",
+            "extra": "min"
+          },
+          {
+            "name": "Threads Average Latency",
+            "value": 126.24,
+            "unit": "ms",
+            "extra": "avg"
+          },
+          {
+            "name": "Threads Maximum Latency",
+            "value": 11106.75,
+            "unit": "ms",
+            "extra": "max"
+          },
+          {
+            "name": "Thread 95th Percentile Latency",
+            "value": 909.8,
             "unit": "ms",
             "extra": "per95"
           }
