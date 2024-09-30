@@ -36,6 +36,11 @@ if [ -f "$occlum_sgx_env" ]; then
         ENCLAVE_SIGN_TOOL="$SGX_SDK/bin/x64/sgx_sign"
     fi
     ENCLAVE_SIGN_KEY="$occlum_dir/etc/template/Enclave.pem"
+    if [ ! -f "$ENCLAVE_SIGN_KEY" ]; then
+        echo "Warning: no valid $ENCLAVE_SIGN_KEY, just create one."
+        openssl genrsa -out $occlum_dir/etc/template/Enclave.pem -3 3072
+        chmod 444 $occlum_dir/etc/template/Enclave.pem
+    fi
 fi
 
 get_enclave_debuggable_flag() {
