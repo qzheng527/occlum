@@ -216,6 +216,7 @@ $(ENCLAVE_REAL_NAME): $(ENCLAVE_OBJS)
 	@echo "LINK =>  $@"
 
 $(SIGNED_ENCLAVE_SONAME): $(ENCLAVE_REAL_NAME)
+	@openssl genrsa -out Enclave/Enclave_private.pem -3 3072
 	@$(SGX_ENCLAVE_SIGNER) sign -key Enclave/Enclave_private.pem -enclave $(ENCLAVE_REAL_NAME) -out $(SIGNED_ENCLAVE_NAME) -config $(ENCLAVE_CONFIG_FILE)
 	@cd $(BUILD_DIR)/lib && ln -sf $(notdir $(SIGNED_ENCLAVE_NAME)) $(notdir $(SIGNED_ENCLAVE_SONAME))
 	@echo "SIGN =>  $@"
