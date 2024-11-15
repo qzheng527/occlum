@@ -5,9 +5,9 @@ LLM ( Large Language Model) inference in TEE can protect the model, input prompt
 1. the performance of LLM inference in TEE (CPU)
 2. can LLM inference run in TEE?
 
-With the significant LLM inference speed-up brought by [BigDL-LLM](https://github.com/intel-analytics/BigDL/tree/main/python/llm), and the Occlum LibOS, now high-performance and efficient LLM inference in TEE could be realized.
+With the significant LLM inference speed-up brought by [IPEX-LLM](https://github.com/intel-analytics/ipex-llm), and the Occlum LibOS, now high-performance and efficient LLM inference in TEE could be realized.
 
-A chatglm2 6B model inference demo by Occlum and BigDL-LLM in TEE is introduced below.
+A chatglm2 6B model inference demo by Occlum and IPEX-LLM in TEE is introduced below.
 
 ## Start the Occlum development container
 ```bash
@@ -23,13 +23,13 @@ First of all, download the [THUDM/chatglm2-6b](https://huggingface.co/THUDM/chat
 ## Install required python packages
 
 Just run the script [install_python_with_conda.sh](./install_python_with_conda.sh).
-It creates a conda python 3.9 env and install **bigdl-llm[all]**.
+It creates a conda python 3.10 env and install **ipex-llm[all]**.
 
 ## Build Occlum instance
 
 Besides the python packages, the demo also requires demo code and model to be existed in Occlum instance. 
 
-The demo code below are copied from BigDL-LLM [chatglm2](https://github.com/intel-analytics/BigDL/tree/main/python/llm/example/CPU/HF-Transformers-AutoModels/Model/chatglm2).
+The demo code below are copied from IPEX-LLM [chatglm2](https://github.com/intel-analytics/ipex-llm/tree/main/python/llm/example/CPU/HF-Transformers-AutoModels/Model/chatglm2).
 ```
 ./chatglm2/generate.py
 ./chatglm2/streamchat.py
@@ -59,11 +59,9 @@ HF_DATASETS_CACHE=/root/cache \
     --repo-id-or-model-path /models/chatglm2-6b
 ```
 
-For both examples, more arguments info could refer to BigDL-LLM [chatglm2](https://github.com/intel-analytics/BigDL/tree/main/python/llm/example/CPU/HF-Transformers-AutoModels/Model/chatglm2).
-
 ## LLM Inference Benchmark
 
-Based on the [benchmark](https://github.com/intel-analytics/BigDL/tree/main/python/llm/dev/benchmark) demo from BigDL, a simple [benchmark](./benchmarks/) is provided to measure the performance of LLM inference both in host and in TEE.
+Based on the [benchmark](https://github.com/intel-analytics/ipex-llm/tree/main/python/llm/dev/benchmark) demo from IPEX-LLM, a simple [benchmark](./benchmarks/) is provided to measure the performance of LLM inference both in host and in TEE.
 
 Output will be like:
 ```
@@ -89,32 +87,28 @@ OMP_NUM_THREADS=16 occlum run /bin/python3 \
 
 By our benchmark result in Intel Ice Lake server, LLM inference performance within a TEE is approximately 30% less compared to on a host environment.
 
-## Do inference with webui
+## Do inference with FastChat service
 
-[FastChat](https://github.com/lm-sys/FastChat#serving-with-web-gui) is an open platform for training, serving, and evaluating large language model based chatbots. 
+[FastChat](https://github.com/lm-sys/FastChat) is an open platform for training, serving, and evaluating large language model based chatbots. 
 
-BigDL-LLM also support FastChat with using BigDL-LLM as a serving backend in the deployment. Details please refer to [BigDL-LLM serving](https://github.com/intel-analytics/BigDL/tree/main/python/llm/src/bigdl/llm/serving).
+IPEX-LLM also support FastChat with using IPEX-LLM as a serving backend in the deployment. Details please refer to [IPEX-LLM serving](https://github.com/intel-analytics/IPEX/tree/main/python/llm/src/IPEX/llm/serving).
 
-For this demo, below commands show how to run an inference service in Occlum with webui interface.
+For this demo, below commands show how to run an inference service in Occlum with Web server or RESTful API server.
 
-In order to load models using BigDL-LLM, the model name should include "bigdl". For example, model **vicuna-7b** should be renamed to **bigdl-7b**. A special case is **ChatGLM** models. For these models, you do not need to do any changes after downloading the model and the BigDL-LLM backend will be used automatically. Details please refer to [Models](https://github.com/intel-analytics/BigDL/tree/main/python/llm/src/bigdl/llm/serving#models).
+To serve using FastChat, you need three main components: web server or RestAPI server that interface with users, model workers that host one or more models, and a controller to coordinate the web server and model workers.
 
-### Serving with WebGUI
-
-To serve using the Web UI, you need three main components: web servers that interface with users, model workers that host one or more models, and a controller to coordinate the web server and model workers.
-
-#### Launch the Controller in non-TEE env
+### Launch the Controller in non-TEE env
 ```bash
 ./python-occlum/bin/python -m fastchat.serve.controller --host 0.0.0.0
 ```
 
 This controller manages the distributed workers.
 
-#### Launch the model worker(s) in Occlum
+### Launch the model worker(s) in Occlum
 ```bash
 cd occlum_instance
 occlum start
-HF_DATASETS_CACHE=/root/cache  occlum exec /bin/python3 -m ipex_llm.serving.fastchat.model_worker --model-path /models/chatglm2-6b --device cpu --host 0.0.0.0
+occlum exec /bin/python3 -m ipex_llm.serving.fastchat.ipex_llm_worker --model-path /models/chatglm2-6b --device cpu --host 0.0.0.0
 ```
 Wait until the process finishes loading the model and you see "Uvicorn running on ...". The model worker will register itself to the controller.
 
@@ -126,6 +120,29 @@ occlum exec /bin/python3 -m fastchat.serve.gradio_web_server --host 0.0.0.0
 
 This is the user interface that users will interact with.
 
-By following these steps, you will be able to serve your models using the web UI with `BigDL-LLM` as the backend. You can open your browser and chat with a model now.
+By following these steps, you will be able to serve your models using the web UI with `IPEX-LLM` as the backend. You can open your browser and chat with a model now.
 
 <img src="./fastchat-webui.png" width="70%">
+
+#### Launch the RESTful API server in Occlum
+```bash
+occlum exec /bin/python3 -m fastchat.serve.openai_api_server --host 0.0.0.0 --port 8000
+```
+Now you can use *curl* commands as below for chat.
+
+##### List Models
+```
+curl http://localhost:8000/v1/models | jq
+```
+
+#### Chat Completions
+```
+curl http://localhost:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "chatglm2-6b",
+    "messages": [{"role": "user", "content": "Hello! What is your name?"}]
+  }' | jq
+```
+
+Just remember the model should be name you got from last step.

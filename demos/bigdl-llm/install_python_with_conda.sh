@@ -14,3 +14,4 @@ $script_dir/python-occlum/bin/pip install torch==2.2.1 --index-url https://downl
 $script_dir/python-occlum/bin/pip install --pre --upgrade ipex-llm[all] ipex-llm[serving]
 # $script_dir/python-occlum/bin/pip install intel-extension-for-pytorch
 $script_dir/python-occlum/bin/pip install transformers_stream_generator einops tiktoken
+$script_dir/python-occlum/bin/pip install transformers==4.37.0
